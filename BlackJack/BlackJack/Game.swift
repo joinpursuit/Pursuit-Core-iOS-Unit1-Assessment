@@ -44,22 +44,55 @@ class Game {
         self.deck = self.deck.shuffled()
         return self.deck.removeLast()
     }
-    
-    func computerVsPlayer() -> Int {
-        return self.stopHits()
-    }
-    
+
+    // I know that you're going to hate the way I did for the face card but please forgive me...r
     func playerScore() {
         for card in self.player.cards {
             switch card.suit {
             case .club:
-                print("\(Suit.club.rawValue)\(card.value)", terminator: " ")
+                    switch card.face {
+                    case .jack:
+                        print("\(Suit.club.rawValue)🎃", terminator: " ")
+                    case .queen:
+                        print("\(Suit.club.rawValue)👸", terminator: " ")
+                    case .king:
+                        print("\(Suit.club.rawValue)🤴", terminator: " ")
+                    default:
+                        print("\(Suit.club.rawValue)\(card.value)", terminator: " ")
+                    }
             case .spade:
-                print("\(Suit.spade.rawValue)\(card.value)", terminator: " ")
+                switch card.face {
+                case .jack:
+                    print("\(Suit.spade.rawValue)🎃", terminator: " ")
+                case .queen:
+                    print("\(Suit.spade.rawValue)👸", terminator: " ")
+                case .king:
+                    print("\(Suit.spade.rawValue)🤴", terminator: " ")
+                default:
+                    print("\(Suit.spade.rawValue)\(card.value)", terminator: " ")
+                }
             case .dimond:
-                print("\(Suit.dimond.rawValue)\(card.value)", terminator: " ")
+                switch card.face {
+                case .jack:
+                    print("\(Suit.dimond.rawValue)🎃", terminator: " ")
+                case .queen:
+                    print("\(Suit.dimond.rawValue)👸", terminator: " ")
+                case .king:
+                    print("\(Suit.dimond.rawValue)🤴", terminator: " ")
+                default:
+                    print("\(Suit.dimond.rawValue)\(card.value)", terminator: " ")
+                }
             case .heart:
-                print("\(Suit.heart.rawValue)\(card.value)", terminator: " ")
+                switch card.face {
+                case .jack:
+                    print("\(Suit.heart.rawValue)🎃", terminator: " ")
+                case .queen:
+                    print("\(Suit.heart.rawValue)👸", terminator: " ")
+                case .king:
+                    print("\(Suit.heart.rawValue)🤴", terminator: " ")
+                default:
+                    print("\(Suit.heart.rawValue)\(card.value)", terminator: " ")
+                }
             }
         }
         
