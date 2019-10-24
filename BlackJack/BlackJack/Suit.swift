@@ -8,8 +8,11 @@
 
 import Foundation
 
-enum Suit: String {
+//https://stackoverflow.com/questions/54455379/ios-swift-enum-caseiterable-extension
+
+enum Suit: String, CaseIterable {
     case clubs = "♣️"
     case hearts = "♥️"
-    
+    case spades = "♠️"
+    case diamonds = "♦️"
 }

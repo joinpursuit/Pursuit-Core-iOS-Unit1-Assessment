@@ -10,6 +10,9 @@
 		576D1E602356839800765B16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E5F2356839800765B16 /* main.swift */; };
 		576D1E692356845300765B16 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E682356845300765B16 /* Card.swift */; };
 		C6FE6D052361EDF000D083BD /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE6D042361EDF000D083BD /* Suit.swift */; };
+		C6FE6D072361F70700D083BD /* FaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE6D062361F70700D083BD /* FaceCard.swift */; };
+		C6FE6D092361F7B700D083BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE6D082361F7B700D083BD /* Player.swift */; };
+		C6FE6D0B2361F80600D083BD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE6D0A2361F80600D083BD /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,9 @@
 		576D1E5F2356839800765B16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		576D1E682356845300765B16 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C6FE6D042361EDF000D083BD /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		C6FE6D062361F70700D083BD /* FaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCard.swift; sourceTree = "<group>"; };
+		C6FE6D082361F7B700D083BD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C6FE6D0A2361F80600D083BD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				C6FE6D042361EDF000D083BD /* Suit.swift */,
+				C6FE6D062361F70700D083BD /* FaceCard.swift */,
 				576D1E682356845300765B16 /* Card.swift */,
+				C6FE6D082361F7B700D083BD /* Player.swift */,
+				C6FE6D0A2361F80600D083BD /* Game.swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
 			);
 			path = BlackJack;
@@ -127,7 +136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				576D1E602356839800765B16 /* main.swift in Sources */,
+				C6FE6D0B2361F80600D083BD /* Game.swift in Sources */,
 				C6FE6D052361EDF000D083BD /* Suit.swift in Sources */,
+				C6FE6D072361F70700D083BD /* FaceCard.swift in Sources */,
+				C6FE6D092361F7B700D083BD /* Player.swift in Sources */,
 				576D1E692356845300765B16 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
