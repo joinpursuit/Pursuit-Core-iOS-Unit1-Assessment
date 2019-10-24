@@ -17,6 +17,7 @@ struct Card {
   var value: Int
   var isFaceCard: Bool
   var face: FaceCard?
+
   
   func stringify() -> String {
     var cardStr = ""
