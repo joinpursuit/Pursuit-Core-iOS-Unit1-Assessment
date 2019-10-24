@@ -10,6 +10,6 @@ import Foundation
 
 struct Player {
     var score: Int
-    var cards: Array = [Card]()
+    var cards: [Card]
     var playerName: String
 }

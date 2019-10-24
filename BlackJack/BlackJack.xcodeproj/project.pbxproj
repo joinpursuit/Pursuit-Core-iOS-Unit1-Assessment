@@ -11,6 +11,7 @@
 		2EDB3F472362046A00A22241 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB3F462362046A00A22241 /* Suit.swift */; };
 		2EDB3F492362047400A22241 /* FaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB3F482362047400A22241 /* FaceCard.swift */; };
 		2EDB3F4B2362047F00A22241 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB3F4A2362047F00A22241 /* Game.swift */; };
+		2EDB3F4D2362249800A22241 /* ascii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB3F4C2362249800A22241 /* ascii.swift */; };
 		576D1E602356839800765B16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E5F2356839800765B16 /* main.swift */; };
 		576D1E692356845300765B16 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E682356845300765B16 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		2EDB3F462362046A00A22241 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		2EDB3F482362047400A22241 /* FaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCard.swift; sourceTree = "<group>"; };
 		2EDB3F4A2362047F00A22241 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		2EDB3F4C2362249800A22241 /* ascii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ascii.swift; sourceTree = "<group>"; };
 		576D1E5C2356839800765B16 /* BlackJack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackJack; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D1E5F2356839800765B16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		576D1E682356845300765B16 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				576D1E682356845300765B16 /* Card.swift */,
+				2EDB3F4C2362249800A22241 /* ascii.swift */,
 				2EDB3F442362046100A22241 /* Player.swift */,
 				2EDB3F462362046A00A22241 /* Suit.swift */,
 				2EDB3F4A2362047F00A22241 /* Game.swift */,
@@ -141,6 +144,7 @@
 				2EDB3F452362046100A22241 /* Player.swift in Sources */,
 				2EDB3F472362046A00A22241 /* Suit.swift in Sources */,
 				576D1E692356845300765B16 /* Card.swift in Sources */,
+				2EDB3F4D2362249800A22241 /* ascii.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
