@@ -25,5 +25,9 @@ class Game {
            //questions = [Question]()
            deck.removeAll()
        }
+    func stopHits() {
+        
+    }
 }
 
+    
