@@ -1,5 +1,5 @@
 //
-//  FaceCard.swift
+//  GameControler.swift
 //  BlackJack
 //
 //  Created by Edward O'Neill on 10/24/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum FaceCard: String, CaseIterable {
-    case jack = "🎃"
-    case queen = "👸"
-    case king = "🤴"
+struct Player {
+    var cards = [Card]()
+    var score = 0
+    var playerName: String
 }

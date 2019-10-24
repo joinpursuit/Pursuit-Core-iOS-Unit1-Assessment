@@ -8,9 +8,11 @@
 
 import Foundation
 
-enum Suit: String {
+enum Suit: String, CaseIterable {
     case dimond = "♦️"
-    case hart = "♥️"
+    case heart = "♥️"
     case spade = "♠️"
     case club = "♣️"
 }
+
+
