@@ -9,9 +9,8 @@
 import Foundation
 
 struct Player {
-    var score : Int
-    var playersCards : [Card]
-    var playerName : String
+    var score = 0
+    var playersCards = [Card]()
     
     mutating func playerScore(playersHand: [Any]) -> Int {
         for card in playersCards {
