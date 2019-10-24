@@ -52,11 +52,15 @@ repeat {
         if userSelection == "hit" {
             game1.hitMe()
             
+            
             // print(game1.player.score)
         } else if userSelection == "pass" {
             game1.stopHits() // i think
         }
-        
+        print()
     } while game1.player.score < 21 && userSelection == "hit"
+    
+    game1.gameStatus()
+    
     
 } while gameOver
