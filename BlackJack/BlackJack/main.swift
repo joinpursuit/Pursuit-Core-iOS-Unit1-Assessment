@@ -8,18 +8,19 @@
 
 import Foundation
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of cards
-
-//for card in Card.newDeck(aceValue: 1) {
-//    print(card)
-//    print(card.stringify())
-//    break
-//}
-
-// print(Card.newDeck(aceValue: 1).randomElement()) optional
-
+print("""
+888     888                888       d8b                888
+888     888                888       Y8P                888
+888     888                888                          888
+88888b. 888 8888b.  .d8888b888  888 8888 8888b.  .d8888b888  888
+888 "88b888    "88bd88P"   888 .88P "888    "88bd88P"   888 .88P
+888  888888.d888888888     888888K   888.d888888888     888888K
+888 d88P888888  888Y88b.   888 "88b  888888  888Y88b.   888 "88b
+88888P" 888"Y888888 "Y8888P888  888  888"Y888888 "Y8888P888  888
+                                     888
+                                    d88P
+                                  888P"
+""")
 
 
 // creating instance of Game
@@ -37,13 +38,9 @@ repeat {
     let player1 = Player(score: 0, cards: [Card](), playerName: name.capitalized)
     game1.player = player1
     print("Hello \(game1.player.playerName)")
-    
-    
-    print(game1.player.cards) // []
-    print(game1.player.score) // 0
+   
     
     var userSelection = ""
-    // i need a repeat while the score is less than 21
     print()
     repeat {
         print("Do you want to hit or pass? (hit, pass)")
@@ -62,5 +59,14 @@ repeat {
     
     game1.gameStatus()
     
+    print("Would you like to try your luck out again? (yes, no)")
+    let playAgain = readLine() ?? ""
+    if playAgain == "no" {
+        gameOver = true
+    } else if playAgain == "yes" {
+        game1.newGame()
+    }
     
-} while gameOver
+} while !gameOver
+
+print("Thanks for playing Jack, I mean \(game1.player.playerName), I hope you had fun 😬.")
