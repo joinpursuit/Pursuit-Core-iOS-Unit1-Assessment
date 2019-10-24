@@ -63,8 +63,15 @@ class Game {
         }
     }
     
-    func gameStatus(score: Int) {
-        
+    func gameStatus(card: Card) {
+        player.score += card.value
+        if player.score == 21 {
+            print("BlackJack!")
+        } else if player.score > 21 {
+            print("BUST!")
+        } else if player.score < 21 {
+             print("Continue!") // this is not what is expected
+        }
     }
     
 }
