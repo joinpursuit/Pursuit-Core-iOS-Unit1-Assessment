@@ -38,7 +38,7 @@ struct Card {
       }
     }
     for face in FaceCard.allCases {
-      for suit in Suit.allCases {
+        for suit in Suit.allCases {
         let card = Card(suit: suit, value: 10, isFaceCard: true, face: face)
         cards.append(card)
       }
