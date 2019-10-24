@@ -12,9 +12,9 @@ class Game {
     //MARK: Properties:
     
     // instance properties
-    var deck: [Card]
-    var player: Player
-    var hitPlayer: Bool
+    var deck = [Card]()
+    var player = Player(score: 0, cards: [Card](), playerName: "Ameni")
+    var hitPlayer = false
     
     // computed properties
     var hasMoreCards: Bool {
@@ -24,13 +24,6 @@ class Game {
         return Int.random(in: 18 ... 21)
     }
     
-    //designated iniitializer: this not be needed.
-    
-    init(deck: [Card], player: Player, hitPlayer: Bool) {
-        self.player = player
-        self.deck = deck
-        self.hitPlayer = hitPlayer
-    }
     //MARK: Methods:
     
     func newGame() {
