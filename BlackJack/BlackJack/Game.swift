@@ -16,6 +16,8 @@ class Game {
     var player = Player(score: 0, cards: [Card](), playerName: "Ameni")
     var hitPlayer = false
     
+    var dealtCards = [String]()
+
     // computed properties
     var hasMoreCards: Bool {
         return !deck.isEmpty // returns false if deck is empty
@@ -36,8 +38,14 @@ class Game {
     }
     
     func hitMe() {
+        // var dealtCards = [String]()
         if let randomCard = Card.newDeck(aceValue: 1).randomElement(){
-            print(randomCard.stringify())
+            dealtCards.append(randomCard.stringify())
+
+            // incrementing score
+            self.player.score += randomCard.value
+            print("\(dealtCards.joined(separator:" ")) score: \(self.player.score)")
+            
         }
     }
     
