@@ -27,14 +27,12 @@ final class Game {
         let computerScore = self.randomComputerScore
         if player.score > computerScore {
             print("Dealer got \(computerScore), \(player.playerName) Wins!")
-            playAgain()
         } else if player.score == computerScore {
             print("Tie! No One Wins")
-            playAgain()
         } else {
             print("Dealer got \(computerScore), Dealer Wins!")
-            playAgain()
         }
+        playAgain()
     }
     
     func hitMe() {
