@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		576D1E602356839800765B16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E5F2356839800765B16 /* main.swift */; };
 		576D1E692356845300765B16 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E682356845300765B16 /* Card.swift */; };
+		8083BF1E2361F3F900620ED7 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083BF1D2361F3F900620ED7 /* Suit.swift */; };
+		8083BF202361F47600620ED7 /* FaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083BF1F2361F47600620ED7 /* FaceCard.swift */; };
+		8083BF222361F59500620ED7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083BF212361F59500620ED7 /* Player.swift */; };
+		8083BF242361F67000620ED7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083BF232361F67000620ED7 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +31,10 @@
 		576D1E5C2356839800765B16 /* BlackJack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackJack; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D1E5F2356839800765B16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		576D1E682356845300765B16 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8083BF1D2361F3F900620ED7 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		8083BF1F2361F47600620ED7 /* FaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCard.swift; sourceTree = "<group>"; };
+		8083BF212361F59500620ED7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		8083BF232361F67000620ED7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				576D1E682356845300765B16 /* Card.swift */,
+				8083BF212361F59500620ED7 /* Player.swift */,
+				8083BF232361F67000620ED7 /* Game.swift */,
+				8083BF1D2361F3F900620ED7 /* Suit.swift */,
+				8083BF1F2361F47600620ED7 /* FaceCard.swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
 			);
 			path = BlackJack;
@@ -124,6 +136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				576D1E602356839800765B16 /* main.swift in Sources */,
+				8083BF242361F67000620ED7 /* Game.swift in Sources */,
+				8083BF1E2361F3F900620ED7 /* Suit.swift in Sources */,
+				8083BF202361F47600620ED7 /* FaceCard.swift in Sources */,
+				8083BF222361F59500620ED7 /* Player.swift in Sources */,
 				576D1E692356845300765B16 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
