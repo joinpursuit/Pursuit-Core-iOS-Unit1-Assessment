@@ -7,7 +7,43 @@
 //
 
 import Foundation
+var aceValueSet = false
+var aceValue = Int()
+var gameOver = false
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of cards
+print("Welcome to BlackJack! What is your name?")
+let name = readLine() ?? ""
+
+print("Hello \(name). Please set your Ace value. (1 or 11)")
+repeat {
+    let oneOrEleven = Int(readLine() ?? "") ?? -1
+    guard oneOrEleven == 1 || oneOrEleven == 11 else {
+        print("Error, please type in 1 or 11.")
+        continue
+    }
+    aceValueSet = true
+    aceValue = oneOrEleven
+} while aceValueSet == false
+
+
+let player1 = Player(playerName: name)
+let blackJackGame = Game(deck: Card.newDeck(aceValue: aceValue), player: player1, hitPlayer: true)
+
+repeat {
+    blackJackGame.newGame(aceValue)
+    repeat {
+        blackJackGame.choicePrompt() //try doing hitMe and stopHits in here.
+        if blackJackGame.hitPlayer {
+            blackJackGame.hitMe()
+        } else {
+            blackJackGame.stopHits()
+            break
+        }
+    } while blackJackGame.player.score < 21
+    
+    print("Would you like to play again? (yes, no)")
+    let yesOrNo = readLine() ?? ""
+    if yesOrNo == "no" {
+        gameOver = true
+    }
+} while gameOver == false
