@@ -78,6 +78,7 @@ repeat {
     print(gamePrompt)
     var userChoice = readLine()?.lowercased() ?? ""
     
-    game.stopHits(userChoice: userChoice)
+    game.hitMe(userChoice: userChoice)
+    
     
 } while true
