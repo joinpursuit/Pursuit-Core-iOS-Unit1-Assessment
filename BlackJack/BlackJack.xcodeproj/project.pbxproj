@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		576D1E602356839800765B16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E5F2356839800765B16 /* main.swift */; };
 		576D1E692356845300765B16 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E682356845300765B16 /* Card.swift */; };
+		C4B16F302361F1E100AC2E74 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B16F2F2361F1E100AC2E74 /* Suit.swift */; };
+		C4B16F322361F2AC00AC2E74 /* FaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B16F312361F2AC00AC2E74 /* FaceCard.swift */; };
+		C4B16F342361F31B00AC2E74 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B16F332361F31B00AC2E74 /* Player.swift */; };
+		C4B16F362361F4DA00AC2E74 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B16F352361F4DA00AC2E74 /* Game.swift */; };
+		C4B16F382362093100AC2E74 /* TwoPlayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B16F372362093100AC2E74 /* TwoPlayerGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +32,11 @@
 		576D1E5C2356839800765B16 /* BlackJack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackJack; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D1E5F2356839800765B16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		576D1E682356845300765B16 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C4B16F2F2361F1E100AC2E74 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		C4B16F312361F2AC00AC2E74 /* FaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCard.swift; sourceTree = "<group>"; };
+		C4B16F332361F31B00AC2E74 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C4B16F352361F4DA00AC2E74 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		C4B16F372362093100AC2E74 /* TwoPlayerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPlayerGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +69,12 @@
 		576D1E5E2356839800765B16 /* BlackJack */ = {
 			isa = PBXGroup;
 			children = (
+				C4B16F2F2361F1E100AC2E74 /* Suit.swift */,
+				C4B16F312361F2AC00AC2E74 /* FaceCard.swift */,
+				C4B16F332361F31B00AC2E74 /* Player.swift */,
 				576D1E682356845300765B16 /* Card.swift */,
+				C4B16F352361F4DA00AC2E74 /* Game.swift */,
+				C4B16F372362093100AC2E74 /* TwoPlayerGame.swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
 			);
 			path = BlackJack;
@@ -124,6 +139,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				576D1E602356839800765B16 /* main.swift in Sources */,
+				C4B16F362361F4DA00AC2E74 /* Game.swift in Sources */,
+				C4B16F302361F1E100AC2E74 /* Suit.swift in Sources */,
+				C4B16F322361F2AC00AC2E74 /* FaceCard.swift in Sources */,
+				C4B16F382362093100AC2E74 /* TwoPlayerGame.swift in Sources */,
+				C4B16F342361F31B00AC2E74 /* Player.swift in Sources */,
 				576D1E692356845300765B16 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEKMNK5YD3;
+				DEVELOPMENT_TEAM = 6D2PJ2UC46;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -259,7 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEKMNK5YD3;
+				DEVELOPMENT_TEAM = 6D2PJ2UC46;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
