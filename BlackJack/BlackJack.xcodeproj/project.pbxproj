@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		576D1E602356839800765B16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E5F2356839800765B16 /* main.swift */; };
 		576D1E692356845300765B16 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1E682356845300765B16 /* Card.swift */; };
+		C1F6B8132361F32F00F4A13A /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F6B8122361F32F00F4A13A /* Suit.swift */; };
+		C1F6B8152361F4F900F4A13A /* FaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F6B8142361F4F900F4A13A /* FaceCard.swift */; };
+		C1F6B8172361F6DF00F4A13A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F6B8162361F6DF00F4A13A /* Player.swift */; };
+		C1F6B8192361F75B00F4A13A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F6B8182361F75B00F4A13A /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +31,10 @@
 		576D1E5C2356839800765B16 /* BlackJack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackJack; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D1E5F2356839800765B16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		576D1E682356845300765B16 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C1F6B8122361F32F00F4A13A /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		C1F6B8142361F4F900F4A13A /* FaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCard.swift; sourceTree = "<group>"; };
+		C1F6B8162361F6DF00F4A13A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C1F6B8182361F75B00F4A13A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +67,12 @@
 		576D1E5E2356839800765B16 /* BlackJack */ = {
 			isa = PBXGroup;
 			children = (
-				576D1E682356845300765B16 /* Card.swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
+				C1F6B8182361F75B00F4A13A /* Game.swift */,
+				576D1E682356845300765B16 /* Card.swift */,
+				C1F6B8162361F6DF00F4A13A /* Player.swift */,
+				C1F6B8122361F32F00F4A13A /* Suit.swift */,
+				C1F6B8142361F4F900F4A13A /* FaceCard.swift */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -124,6 +136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				576D1E602356839800765B16 /* main.swift in Sources */,
+				C1F6B8192361F75B00F4A13A /* Game.swift in Sources */,
+				C1F6B8132361F32F00F4A13A /* Suit.swift in Sources */,
+				C1F6B8152361F4F900F4A13A /* FaceCard.swift in Sources */,
+				C1F6B8172361F6DF00F4A13A /* Player.swift in Sources */,
 				576D1E692356845300765B16 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEKMNK5YD3;
+				DEVELOPMENT_TEAM = G4KQ459XHC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -259,7 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEKMNK5YD3;
+				DEVELOPMENT_TEAM = G4KQ459XHC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
