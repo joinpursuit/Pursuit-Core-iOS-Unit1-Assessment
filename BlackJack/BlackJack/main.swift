@@ -22,6 +22,8 @@ repeat{
     var userResponse = readLine() ?? ""
     repeat{
         game.gameStatus(userResponse: userResponse)
+        game.hitMe()
+        game.stopHits()
         print("Your current score and hand: \(game.player)")
         print("")
     } while game.hasMoreCards
