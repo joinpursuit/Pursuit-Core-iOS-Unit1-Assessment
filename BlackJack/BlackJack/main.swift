@@ -18,4 +18,8 @@ Suit.allCases.forEach {
     print($0)
 }
 
+FaceCard.allCases.forEach {
+    print($0)
+}
+
 // new

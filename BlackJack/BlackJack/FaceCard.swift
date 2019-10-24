@@ -8,6 +8,13 @@
 
 import Foundation
 
-enum FaceCard {
-    case king =
+enum FaceCard: String {
+    case jack = "🎃"
+    case queen = "👸🏾"
+    case king = "🤴🏾"
+}
+
+
+extension FaceCard {
+    static let allCases: [FaceCard] = [.jack, .queen, .king]
 }
