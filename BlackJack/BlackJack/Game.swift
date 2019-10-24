@@ -9,7 +9,7 @@
 import Foundation
 
 struct Game {
-    //properties
+    //MARK: properties
     var deck = [Card]()
     var player : Player
     var hitPlayer : Bool
@@ -23,30 +23,48 @@ struct Game {
         return Int.random(in: 17...21)
     }
     
-    //methods
+    //MARK: methods
+    
+    //1.
     func newGame() {
         
     }
     
-    func stopHits() {
+    //2.
+    mutating func stopHits() {
         if hitPlayer == false {
-        
+            let result = player.playerScore(playersHand: player.playersCards)
+            if result > computerVPlayer(compScore: randomComputerScore) {
+                print("You Won!! 🥳")
+            } else if result == computerVPlayer(compScore: randomComputerScore) {
+                print("It's a tie! 😅")
+            } else {
+                print("You lost 😢")
+            }
         }
     }
     
-    func hitMe() {
-        if hitPlayer == true {
+    //3.
+    mutating func hitMe() {
+        switch hitPlayer {
+        case true :
+            for card in deck {
+                player.playersCards.append(card)
+            }
+            var result =  player.playerScore(playersHand: player.playersCards)
             
+        default:
+            print("Not valid")
         }
     }
     
-    func computerVPlayer() {
-        var computerScore = randomComputerScore
-        if computerScore > .score {
-            print("You lost! ")
-        }
+    //4.
+    func computerVPlayer(compScore: Int) -> Int {
+        let computerScore = randomComputerScore
+        return computerScore
     }
     
+    //5.
     func gameStatus() {
         
     }
