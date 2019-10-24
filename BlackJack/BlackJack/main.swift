@@ -21,18 +21,57 @@ func getUserInput() -> String{
 }
 
 //prompt to get user name
-print("What is you name?")
+print("WELCOME TO BLACKJACK \n What is you name?")
 let userName = getUserInput()
 
-let deckOfCards = Card.newDeck(aceValue: 1)
-let player = Player(score: 0, cards: [deckOfCards[Int.random(in: 1...Card.newDeck(aceValue: 1).count)]], playerName: userName)
+// created instances of objects relevant toward the creation of the game like Player and Card
+var deckOfCards = Card.newDeck(aceValue: 11)
+var player = Player(score: 0, cards: [], playerName: userName)
 let game = Game(deck: deckOfCards, player: player, hitPlayer: false)
-game.newGame()
+//game.newGame()
 
 var gameOver = false
-let userPrompt = "WELCOME TO BLACKJACK"
+let userPrompt = "Do you want to hit or pass? (hit, pass)"
 
 repeat {
-    print(userPrompt)
     
+    //start of inner repeat while
+    repeat {
+        print(userPrompt)
+        let userHitOrPassResponse = getUserInput()
+        
+        //control flow of whether or not user response with a hit or pass response
+        
+        // if user hits card will be given to the user
+        if userHitOrPassResponse.contains("hit") {
+            let userCard = game.hitMe()
+            var playerHand = player.cards
+            playerHand.append(userCard)
+            
+            //prints what the user sees
+            var score = 0
+            var userCardString = String()
+            for card in playerHand{
+                userCardString += card.stringify()
+                score += card.value
+            }
+            print(userCardString, "score: \(score)")
+        } else if userHitOrPassResponse.contains("pass") {
+            // returns whether or not the user won the game
+            game.stopHits()
+        }
+    } while game.gameStatus(playerInputCard: <#T##Card#>)
+    //end of inner repeat while
+    
+    
+    // prompt the user whether or not they want to keep
+    // playing
+    print("Do you wish to continue playing? (yes, no)")
+    let userContinue = getUserInput()
+    if userContinue == "yes" {
+    game.newGame()
+      gameOver = true
+    } else {
+      gameOver = false
+    }
 } while gameOver

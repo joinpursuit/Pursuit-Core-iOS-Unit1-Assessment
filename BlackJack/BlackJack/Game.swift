@@ -61,19 +61,19 @@ class Game {
         let playerScore = player.score
         
         if playerScore > computerScore{
-            print("You won. You: \(playerScore) Computer: \(computerScore)")
+            print("You won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if playerScore < computerScore{
-            print("Computer Won. You: \(playerScore) Computer: \(computerScore)")
+            print("Computer Won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if playerScore == blackJack{
             print("BLACKJACK!!! YOU WON!!!")
         } else if computerScore == blackJack {
-            print("Computer wins with BLACKJACK!!! You: \(playerScore) Computer: \(computerScore)")
+            print("Computer wins with BLACKJACK!!! \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if playerScore == blackJack && computerScore == blackJack {
             print("Game is tied. Both players have BLACKJACK!!!")
         }
     }
     
-    func gameStatus (playerInputCard playerCard: Card) {
+    func gameStatus (playerInputCard playerCard: Card) -> Bool {
         
         //var truOfalse:Bool
         
@@ -94,6 +94,7 @@ class Game {
         default:
             break
         }
+        return hitPlayer
     }
     
 }
