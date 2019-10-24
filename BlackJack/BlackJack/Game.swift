@@ -32,6 +32,7 @@ class Game {
         deck.removeAll()
         deck = Card.newDeck(aceValue: 1)
         player.score = 0
+        player.cards.removeAll()
         computerScore = 0
     }
     
