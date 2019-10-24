@@ -11,6 +11,6 @@ import Foundation
 struct Player {
     //  instance properties
     var score: Int
-    var cards: [Card]
+    var cards: [String]
     var playerName: String
 }

@@ -13,10 +13,9 @@ class Game {
     
     // instance properties
     var deck = [Card]()
-    var player = Player(score: 0, cards: [Card](), playerName: "No Name")
+    var player = Player(score: 0, cards: [String](), playerName: "No Name")
     var hitPlayer = false
-    
-    var dealtCards = [String]()
+
 
     // computed properties
     var hasMoreCards: Bool {
@@ -30,7 +29,8 @@ class Game {
     
     func newGame() {
         player.score = 0
-        deck.removeAll()
+        // deck.removeAll()
+        player.cards.removeAll()
     }
     
     func stopHits() {
@@ -39,43 +39,47 @@ class Game {
     
     func hitMe() {
         // var dealtCards = [String]()
-        if let randomCard = Card.newDeck(aceValue: 1).randomElement(){
-            dealtCards.append(randomCard.stringify())
-
-            // incrementing score
-            player.score += randomCard.value
-            print("\(dealtCards.joined(separator:" ")) score: \(player.score)")
+        
+        var cards = deck.shuffled()
+        if let randomCard = cards.popLast(){
+            player.cards.append(randomCard.stringify())
+        
+        // if let randomCard = Card.newDeck(aceValue: 1).randomElement(){
+        // dealtCards.append(randomCard.stringify())
             
+        // incrementing score
+        player.score += randomCard.value
+            print("\(player.cards.joined(separator:" ")) score: \(player.score)")
         }
+        
     }
     
     func computerVsPlayer() {
         let computerScore = randomComputerScore
         let userScore = player.score
-        
-        if userScore > computerScore {
-            print("BLACKJACK!! YOU WON! Computer: \(computerScore), You: \(userScore). ")
-        } else if userScore < computerScore {
-            print("COMPUTER WINS Computer: \(computerScore), You: \(userScore).")
-
-        } else  if userScore == computerScore{
-            print("ITS A TIE")
-        }
+//
+//        if userScore > computerScore {
+//            print("BLACKJACK!! YOU WON! Computer: \(computerScore), You: \(userScore). ")
+//        } else if userScore < computerScore {
+//            print("COMPUTER WINS Computer: \(computerScore), You: \(userScore).")
+//
+//        } else  if userScore == computerScore{
+//            print("ITS A TIE")
+//        }
         // either on works it just repeated becasuse i called function twice
         
-//        switch userScore {
-//        case let user where user > computerScore:
-//            print("BLACKJACK!! YOU WON! Computer: \(computerScore), You: \(user). ")
-//        case let user where user < computerScore:
-//            print("COMPUTER WINS Computer: \(computerScore), You: \(user).")
-//        default:
-//            print("ITS A TIE")
-//
-//        }
+        switch userScore {
+        case let user where user > computerScore:
+            print("BLACKJACK!! YOU WON! Computer: \(computerScore), You: \(user). ")
+        case let user where user < computerScore:
+            print("COMPUTER WINS Computer: \(computerScore), You: \(user).")
+        default:
+            print("ITS A TIE")
+
+        }
     }
     
     func gameStatus() {
-        // player.score += card.value
         if player.score == 21 {
             print("BlackJack!")
         } else if player.score > 21 {

@@ -27,28 +27,30 @@ print("""
 var game1 = Game()
 // class newGame on instance
 game1.newGame()
+game1.deck = Card.newDeck(aceValue: 1)
 
 var gameOver = false
 
+ print("Please enter you name")
+ let name = readLine() ?? "No Name"
+ // creating player
+ let player1 = Player(score: 0, cards: [String](), playerName: name.capitalized)
+ game1.player = player1
+ print("Hello \(game1.player.playerName)")
+
+ 
 
 repeat {
-    print("Please enter you name")
-    let name = readLine() ?? "No Name"
-    // creating player
-    let player1 = Player(score: 0, cards: [Card](), playerName: name.capitalized)
-    game1.player = player1
-    print("Hello \(game1.player.playerName)")
-   
-    
+
     var userSelection = ""
     print()
     repeat {
-        print("Do you want to hit or pass? (hit, pass)")
+        print("Would you like to hit or pass? (hit, pass)")
         userSelection = readLine() ?? ""
         
         if userSelection == "hit" {
             game1.hitMe()
-            
+            print(game1.deck.count)
             
             // print(game1.player.score)
         } else if userSelection == "pass" {
@@ -69,4 +71,4 @@ repeat {
     
 } while !gameOver
 
-print("Thanks for playing Jack, I mean \(game1.player.playerName), I hope you had fun 😬.")
+print("Thanks for playing Jack, Uh I mean \(game1.player.playerName)! I hope you had fun 😬.")
