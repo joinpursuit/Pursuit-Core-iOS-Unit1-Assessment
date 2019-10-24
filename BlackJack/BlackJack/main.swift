@@ -60,7 +60,7 @@ repeat {
             // returns whether or not the user won the game
             game.stopHits()
         }
-    } while game.gameStatus(playerInputCard: <#T##Card#>)
+    } while game.gameStatus(playerInputCards: player.cards)
     //end of inner repeat while
     
     

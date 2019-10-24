@@ -73,14 +73,18 @@ class Game {
         }
     }
     
-    func gameStatus (playerInputCard playerCard: Card) -> Bool {
+    //TODO: Convert parameters to accept [Card] or the hand of the users Cards
+    func gameStatus (playerInputCards playerHand: [Card]) -> Bool {
         
         //var truOfalse:Bool
         
         var playerCurrentScore = player.score
-        let playerScore = playerCard.value
-        playerCurrentScore += playerScore
         
+        //for loop to access the value of each card
+        for card in playerHand {
+            playerCurrentScore += card.value
+        }
+            
         switch hitPlayer {
         case playerCurrentScore == blackJack:
             print("BLACKJACK")
