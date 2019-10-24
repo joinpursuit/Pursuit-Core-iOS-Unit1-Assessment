@@ -11,12 +11,12 @@ import Foundation
 class Game {
 var deck = [Card]()
 var player: Player
-var hitPLayer: Bool
+var hitPlayer: Bool
 
-init(deck: [Card], player: Player, hitPlayer: Bool) {
+    init(deck: [Card], player: Player, hitPlayer: Bool) {
     self.deck = deck
     self.player = player
-    self.hitPLayer = hitPlayer
+    self.hitPlayer = hitPlayer
 }
     var hasMoreCards: Bool {
         
@@ -34,22 +34,29 @@ func newGame() {
 // gotta work on this function more
 
 func stopHits(userChoice: String) {
-    var userChoice = userChoice
-    userChoice = readLine()?.lowercased() ?? ""
-    
-    if userChoice == "pass"{
-        print(deck.randomElement() ?? "")
+    //called as the user requests more cards from the deck
+    Card.newDeck(aceValue: 1)
+    if userChoice == "hit" {
+        for card in deck{
+            print(card)
+        }
     }
-}
-
-func hitMe(userHit: String) {
-    var userHit = userHit
-    userHit = readLine()?.lowercased() ?? ""
-    
-    if userHit == "hit" {
-        print()
     }
-}
-
-
-}
+    
+    func hitMe(userChoice: String) {
+        //draws a random number for the computer and determines the winner of the game.
+        if userChoice == "pass"{
+            print("yer granni")
+        }
+    }
+    
+        func computerVsPlayer() {
+         //draws a random number for the computer and determines the winner of the game.
+            
+        }
+        
+        
+        
+        
+        
+    }

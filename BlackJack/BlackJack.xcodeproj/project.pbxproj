@@ -70,8 +70,8 @@
 				576D1E682356845300765B16 /* Card.swift */,
 				80A1FD89236205FE004F9BDE /* Suit.swift */,
 				80A1FD8B23620609004F9BDE /* FaceCard.swift */,
-				80A1FD8D2362060F004F9BDE /* Game.swift */,
 				80A1FD8F23620619004F9BDE /* Player.swift */,
+				80A1FD8D2362060F004F9BDE /* Game.swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
 			);
 			path = BlackJack;
