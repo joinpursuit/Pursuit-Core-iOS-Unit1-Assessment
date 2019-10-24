@@ -8,6 +8,23 @@
 
 import Foundation
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of cards
+var game = Game()
+var gameContinue: Bool = false
+
+repeat {
+    print("""
+Welcome to Black Jack
+Please enter your name
+""")
+    let name = readLine()!
+    game.player.playerName = name
+    game.deck = Card.newDeck(aceValue: 1)
+    game.hitMe()
+    game.hitMe()
+    repeat {
+        game.hitChoice()
+    } while game.hitPlayer
+    game.hitPlayer = true
+} while gameContinue
+
+
