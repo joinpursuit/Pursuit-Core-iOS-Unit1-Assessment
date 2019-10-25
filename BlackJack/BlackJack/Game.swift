@@ -63,10 +63,28 @@ class Game {
         if player.score < 21 && computerScore < 21 {
             gameOver = false
         }
+        if player.score == 21 && computerScore == 21 {
+            print("TIE GOES TO THE DEALER! YOU LOSE")
+            gameOver = true
+        }
     }
         
-    
-    
+    func stopHits() {
+        computerScore += deck.popLast()?.value ?? 5
+        if computerScore.distance(to: 21) > player.score.distance(to: 21) && player.score <= 21 && computerScore <= 21 {
+            print("\(player.score) player and \(computerScore) computer")
+            print("YOU ARE CLOSEST WITHOUT GOING OVER! YOU WIN!")
+            gameOver = true
+        } else if computerScore > 21 {
+            print("\(player.score) player and \(computerScore) computer")
+            print("YOU ARE CLOSEST WITHOUT GOING OVER! YOU WIN!")
+            gameOver = true
+        } else {
+           print("\(player.score) player and \(computerScore) computer")
+            print("COMPUTER WAS CLOSEST WITHOUT GOING OVER! YOU LOSE!")
+            gameOver = true
+        }
+    }
     
     
     

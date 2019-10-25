@@ -17,6 +17,14 @@ var gameOver = false
 let shuffledDeck = game.newGame()
 print(shuffledDeck)
 
+
+
+
+
+
+repeat {
+
+
 repeat {
      
     print(gamePrompt)
@@ -28,8 +36,10 @@ repeat {
                 game.gameStatus()
     }
         if playerInput == "stay" {
-            
+            game.stopHits()
         }
     }
     
 } while !gameOver
+
+} while 
