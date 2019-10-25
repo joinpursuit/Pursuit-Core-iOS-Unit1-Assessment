@@ -18,6 +18,7 @@ struct Card {
   var isFaceCard: Bool
   var face: FaceCard?
   
+    //converts a card to a string within the readline
   func stringify() -> String {
     var cardStr = ""
     if self.isFaceCard {
@@ -29,6 +30,7 @@ struct Card {
     return cardStr
   }
   
+    //creates a new deck of cards
   static func newDeck(aceValue: Int) -> [Card] {
     var cards = [Card]()
     for cardValue in 2..<11 {
