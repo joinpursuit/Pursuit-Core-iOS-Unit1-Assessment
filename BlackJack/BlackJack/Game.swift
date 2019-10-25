@@ -38,7 +38,7 @@ class Game {
     
     //methods
     func newGame () {
-        deck.removeAll()
+        deck = Card.newDeck(aceValue: 11)
         player.cards.removeAll()
         player.score = 0
         player.playerName = ""
@@ -46,19 +46,20 @@ class Game {
     }
     
     func stopHits () {
-        computerVsPlayer(inputInt: randomComputerScore)
+        computerVsPlayer()
     }
     
-    func hitMe() -> Card {
+    func hitMe() -> Card? {
         deck = deck.shuffled()
-        guard let playerCard = deck.popLast() else { return deck[Int.random(in: 1...Card.newDeck(aceValue: 1).count)]}
+        let playerCard = deck.popLast()
         //var playerCards = player.cards.append(playerCard)
         return playerCard
     }
     
-    func computerVsPlayer(inputInt computerScore: Int) {
+    func computerVsPlayer() {
         //let computerScore = randomComputerScore
         let playerScore = player.score
+        let computerScore = randomComputerScore
         
         if playerScore > computerScore{
             print("You won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
