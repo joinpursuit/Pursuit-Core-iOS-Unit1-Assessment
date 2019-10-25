@@ -12,8 +12,8 @@ import Foundation
 //Add the following properties score of type Int, cards array of type [Card] and playerName of type String.
 
 struct Player {
-    var score: Int
-    var cards =  [Card]()
+    var score = 0
+    var cards: [Card]
     var playerName: String
 }
 

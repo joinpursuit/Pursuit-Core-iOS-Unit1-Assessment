@@ -8,9 +8,6 @@
 
 import Foundation
 
-// TODO: currently there are 5 errors in the Card struct
-// 1. Follow steps from Suit.swift section in the assessment README
-// 2. Follow steps from FaceCard.swift section in the assessment README
 
 struct Card {
   var suit: Suit
@@ -18,7 +15,8 @@ struct Card {
   var isFaceCard: Bool
   var face: FaceCard?
 
-  
+  // Methods:
+    
   func stringify() -> String {
     var cardStr = ""
     if self.isFaceCard {
@@ -51,3 +49,16 @@ struct Card {
     return cards
   }
 }
+
+
+
+
+
+
+
+
+
+
+// TODO: currently there are 5 errors in the Card struct
+// 1. Follow steps from Suit.swift section in the assessment README
+// 2. Follow steps from FaceCard.swift section in the assessment README
