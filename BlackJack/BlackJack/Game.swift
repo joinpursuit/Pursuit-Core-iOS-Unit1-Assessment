@@ -52,22 +52,27 @@ struct Game {
     mutating func hitMe(userResponse: String) -> Bool {
         switch userResponse {
         case "hit" :
-        hitPlayer == true
+        if hasMoreCards == true{
         for (index, card) in deck.enumerated() {
             player.playersCards.append(card)
             deck.remove(at: index)
         }
+        }
+        return hitPlayer == true
+            
         case "pass" :
-        hitPlayer == false
-        computerVPlayer(compScore: randomComputerScore)
+        print("computer score: \(computerVPlayer())")
+        return hitPlayer == false
+            
         default:
         print("Sorry the deck is empty")
     }
+        return hitPlayer
     }
     
     //4.
     //calculating computer score by randomly choosing from a range of numbers.
-    func computerVPlayer(compScore: Int) -> Int {
+    func computerVPlayer() -> Int {
         let computerScore = randomComputerScore
         return computerScore
     }
@@ -77,21 +82,12 @@ struct Game {
     //choices to continue, bust/lose, blackjack/win
     mutating func gameStatus(userResponse: String) {
         score = player.playerScore(playersHand: player.playersCards)
-        print("score: \(score)")
-        
-        switch userResponse {
-        case "hit":
-            hitMe(hitPlayer: true)
-        case "pass":
-            stopHits(hitPlayer: false)
-        default:
-            print("Not valid. hit or pass")
-        }
-        
-        if score > computerVPlayer(compScore: randomComputerScore) {
+        print("your score: \(score)")
+        print("your hand: \(player.playersCards)")
+        if score > computerVPlayer() {
             print("BlackJack!")
             print("You Won!! 🥳")
-        } else if score == computerVPlayer(compScore: randomComputerScore) {
+        } else if score == computerVPlayer() {
             print("It's a tie! 😅")
         } else {
             print("You lost 😢")
