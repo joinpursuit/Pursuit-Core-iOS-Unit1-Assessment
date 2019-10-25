@@ -72,7 +72,7 @@ class Game {
         }
     }
     
-    //TODO: Convert parameters to accept [Card] or the hand of the users Cards
+    //uses a card that is hit and added to the players hand to determine if the status of the game should continue
     func gameStatus (playerInputCard hitCard: Card) -> Bool {
         
         //players current hand
@@ -92,12 +92,15 @@ class Game {
         
         if playerCurrentScore == blackJack {
             print("BLACKJACK")
-            return false
+            self.hitPlayer = false
+            return self.hitPlayer
         } else if playerCurrentScore > blackJack {
             print("BUST")
-            return false
+            self.hitPlayer = false
+            return self.hitPlayer
         } else {
-            return true
+            self.hitPlayer = true
+            return self.hitPlayer
         }
             
     }
