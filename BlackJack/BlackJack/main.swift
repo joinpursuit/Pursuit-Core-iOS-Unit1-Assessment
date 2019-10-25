@@ -18,6 +18,7 @@ sleep(3)
 //Use a repeat-while to allow the user options between getting new cards by calling the hitMe() method or passing by calling the stopHits() method.
 //When the player has won or lost ask them if they would wish to continue playing another round.
 let game = Game()
+game.newGame()
 
 
 var playAgain = false
@@ -29,29 +30,49 @@ Do you want to hit or pass
 repeat{
     
     print(userPrompt)
-    let userResponse = readLine() ?? ""
-    
-
-    repeat{ // goes through the question array
+    let userResponse = readLine() ?? "pass"
+    if userResponse == "hit"{
+        repeat{
+            game.hitme()
+            game.gameStatus()
+            game.hasMoreCards = game.moreHits()
+            
+        } while game.player.score <= 20
         
-        game.hitme()
-        
-        
-        
-        
-    } while game.hasMoreQuestions
-
-    game.finalScore()
-
-    
-
-    print("Do you want to play again? yes or no ")
-    let yesOrNo = readLine()?.lowercased() ?? "no"
-    if yesOrNo == "yes"{
-        game.newGame()
-        playAgain = true
-    } else {
-        playAgain = false
+        game.gameStatus()
+        print("Do you want to play again? yes or no ")
+        let yesOrNo = readLine()?.lowercased() ?? "no"
+        if yesOrNo == "yes"{
+            game.newGame()
+            playAgain = true
+        } else {
+            playAgain = false
+        }
+      else if userResponse == "pass"{
+      game.computerVsPlayer()
+      print("Do you want to play again? yes or no ")
+      let yesOrNo = readLine()?.lowercased() ?? "no"
+      if yesOrNo == "yes"{
+          game.newGame()
+          playAgain = true
+      } else {
+          playAgain = false
+      }
     }
-} while playAgain
+    
+    
+}
+    
+}while playAgain
+
+
+print("Do you want to play again? yes or no ")
+let yesOrNo = readLine()?.lowercased() ?? "no"
+if yesOrNo == "yes"{
+    game.newGame()
+    playAgain = true
+} else {
+    playAgain = false
+}
+
 

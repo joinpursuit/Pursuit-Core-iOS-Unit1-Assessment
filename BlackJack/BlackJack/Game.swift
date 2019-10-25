@@ -12,11 +12,9 @@ class Game {
 
     var deck = [Card]()
     var player = Player(score: 0, cards: [])
-    var hitPLayer = true
+    var hasMoreCards = true
     var playerDealtcards = Array<Any>()
-//    var hasMoreCards:Bool {
-//        return true
-//    }
+    
     
     var randomComputerScore: Int {
        return .random(in: 15...21)
@@ -24,7 +22,7 @@ class Game {
 
     func newGame(){
        deck = Card.newDeck(aceValue: 11)
-       hitPLayer = true
+       hasMoreCards = true
        player.score = 0
        player.cards.removeAll()
     }
@@ -40,13 +38,12 @@ class Game {
     }
         
     func hitme(){
-        var shufdeck = deck.shuffled()
-        player.score += (shufdeck.last?.value ?? 0)
-        playerDealtcards.append(shufdeck.last ?? 0)
-        player.cards.append(shufdeck.last ?? <#Card#>)
-        shufdeck.removeLast()
-        print("\(playerDealtcards)    \(player.score)")
-        
+        deck = deck.shuffled()
+        if let card = deck.popLast(){
+          player.cards.append(card)
+          player.score += card.value
+        }
+        print("cards: \(player.cards.map{ $0.stringify() }) score: \(player.score)")
     }
 
     func computerVsPlayer(){
@@ -66,12 +63,13 @@ class Game {
         case 21:
             print("BlackJack. You win!! with a score of \(player.score)")
             print(blackJack)
-            return
+           
         case 22..<100:
             print("Bust !!! Whew, you almost had it your score of \(player.score) is too high")
             print(bust)
+           
         default:
-            print("Continue Playing?")
+            print(" ")
             
 }
 
