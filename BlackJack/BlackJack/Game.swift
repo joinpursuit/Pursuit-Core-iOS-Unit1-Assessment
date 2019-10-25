@@ -25,6 +25,8 @@ class Game {
     }
 
     //computed properties
+    
+    //function theoretically not needed as the deck will likely never be empty on one player mode. Possibly so on 2-player mode
     var hasMoreCards:Bool {
         return !deck.isEmpty
     }
@@ -82,7 +84,7 @@ class Game {
         playerHand.append(hitCard)
         
         //players current score - should be zero,but is given from the initialized player.score in the main.swift file
-        var playerCurrentScore = self.player.score
+        var playerCurrentScore = 0
         
         //for loop to access the value of each card in the players hand, and sum them up
         for card in playerHand {

@@ -8,11 +8,6 @@
 
 import Foundation
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-//print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of cards
-
-//pushing to gitHub
 func getUserInput() -> String{
     guard let userInput = readLine() else {
         return "Invalid reponses detected"
@@ -20,11 +15,8 @@ func getUserInput() -> String{
     return userInput
 }
 
-// created instances of objects relevant toward the creation of the game like Player and Card
-//var deckOfCards = Card.newDeck(aceValue: 11)
-//var player = Player(score: 0, cards: [], playerName: userName)
+// created instances of game object
 let game = Game(deck: Card.newDeck(aceValue: 11), player: Player(score: 0, cards: [], playerName: ""), hitPlayer: false)
-//game.newGame()
 
 var gameOver = false
 var continueGame = true
@@ -39,7 +31,6 @@ repeat {
     repeat {
         print(userPrompt)
         let userHitOrPassResponse = getUserInput()
-        //var playerHand = game.player.cards
         //control flow of whether or not user response with a hit or pass response
         
         // if user hits card will be given to the user
@@ -59,9 +50,7 @@ repeat {
 
             //prints what the user sees
             let score = game.player.score
-            
-            //score += userCard.value
-            
+                        
             print(userCardString, "score: \(score)")
         } else if userHitOrPassResponse == "pass" {
             // returns whether or not the user won the game
@@ -70,7 +59,6 @@ repeat {
         }
     } while continueGame
     //end of inner repeat while
-    
     
     // prompt the user whether or not they want to keep playing
     print("Do you wish to continue playing? (yes, no)")
