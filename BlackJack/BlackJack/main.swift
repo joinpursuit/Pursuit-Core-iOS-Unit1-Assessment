@@ -15,11 +15,6 @@ var gameOver = false
 var playAgain = false
 var shuffledDeck = game.newGame()
 
-
-
-
-
-
 repeat {
     
 repeat {
@@ -29,7 +24,11 @@ repeat {
         let playerInput = readLine() ?? ""
             if playerInput == "hit" {
                 print("HIT!")
-                print(game.hitMe()!)
+                print(game.hitMe()?.stringify() ?? "" )
+                for cards in game.player.cards {
+                    print(cards.stringify(), terminator: "")
+                }
+                print(" Score: \(game.player.score)")
                 game.gameStatus()
     }
         if playerInput == "stay" {

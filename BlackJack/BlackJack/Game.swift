@@ -39,7 +39,7 @@ class Game {
         player.cards.append(pickedCard)
         guard let computerCard = deck.popLast() else {return nil}
         computerScore += computerCard.value
-        print("comp score is \(computerScore)")
+        print("Player score is \(player.score)")
         return pickedCard
         }
        
@@ -85,10 +85,5 @@ class Game {
             gameOver = true
         }
     }
-    
-    
-    
-    
-    
-    }
+}
  
