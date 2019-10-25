@@ -23,13 +23,13 @@ print("HEY THERE \(playerName)!")
 print()
 print("Happy to make your aquaintence today!")
 
-
+//playGame.
 var gameOver = false
 
 repeat {
     
     print("My dealer is willin' and ready. Hit or Pass, Darlin'?")
-   var playersResponse = readLine() ?? ""
+   let playersResponse = readLine() ?? ""
     switch playersResponse {
     case "hit" :
         playGame.hitMe()

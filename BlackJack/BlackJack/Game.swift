@@ -10,8 +10,8 @@ import Foundation
 //see init below
 class Game {
     var deck: [Card] = []
-    var player: Player
-    var hitPlayer: Bool
+    var player = Player(score: 0, cards: [], playerName: "Andrea")
+    var hitPlayer = true
     var computerScore = 0
     
     var hasMoreCards: Bool {
@@ -19,18 +19,19 @@ class Game {
     }
     var randomComputerScore: Int {
         let rangeScore = 17..<22
-        for _ in rangeScore {
+        for score in rangeScore {
             return rangeScore.randomElement() ?? 17
         }
+        
     }
     //I'm not sure what I'm missing here. Is this not the way I'd declare a class
-init(deck: [Card],
-    player: Player,
-    hitPlayer: Bool) {
-    self.deck = deck
-    self.player = player
-    self.hitPlayer = hitPlayer
-        }
+//init(deck: [Card],
+//    player: Player,
+//    hitPlayer: Bool) {
+//    self.deck = deck
+//    self.player = player
+//    self.hitPlayer = hitPlayer
+//        }
     
         func newGame() {
             deck = Card.newDeck(aceValue: 1)
@@ -51,12 +52,12 @@ func hitMe() -> Card {
 }
 
 func computerVsPlayer() {
-    if game.player.score > computerScore {
-        print("You scored \(game.player.score) points. Dealer scores \(randomComputerScore)")
+    if player.score > computerScore {
+        print("You scored \(player.score) points. Dealer scores \(randomComputerScore)")
         print("Congratulations Rain Man! You're a winner!")
         print()
         print("And FILTHY RICH!!!")
-    } else if computerScore > game.player.score {
+    } else if computerScore > player.score {
         print("I guess beginner's luck ain't so lucky!")
         print("Feel free to give us your money anytime.")
         print()
@@ -66,17 +67,21 @@ func computerVsPlayer() {
     }
         
     }
-
+        
+//if statement instead???
+        
 func gameStatus() {
-    switch gameStatus() {
-    case game.player.score > 21 :
+    switch player.score {
+    case 21...32 :
         print("BUSTER!! You Lose. 🙂🙃🙂🙃🙂🙃")
-    case game.player.score == 21 :
+    case 21 :
          print("BLACKJACK BAYBEEEEEEE!🤯")
+    case 1..<21 :
+        print("Hit or Pass?")
     default:
         print("Continue playing")
    }
 }
 
 }
-
+//}
