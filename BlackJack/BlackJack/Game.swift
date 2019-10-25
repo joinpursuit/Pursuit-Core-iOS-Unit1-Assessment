@@ -73,16 +73,22 @@ class Game {
     }
     
     //TODO: Convert parameters to accept [Card] or the hand of the users Cards
-    func gameStatus (playerInputCards playerHand: [Card]) -> Bool {
+    func gameStatus (playerInputCard hitCard: Card) -> Bool {
         
-        //var truOfalse:Bool
+        //players current hand
+        var playerHand = self.player.cards
         
+        //add the hitted card to the players hand
+        playerHand.append(hitCard)
+        
+        //players current score - should be zero,but is given from the initialized player.score in the main.swift file
         var playerCurrentScore = self.player.score
         
-        //for loop to access the value of each card
+        //for loop to access the value of each card in the players hand, and sum them up
         for card in playerHand {
             playerCurrentScore += card.value
         }
+        self.player.score = playerCurrentScore
         
         if playerCurrentScore == blackJack {
             print("BLACKJACK")

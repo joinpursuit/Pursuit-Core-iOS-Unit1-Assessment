@@ -32,21 +32,21 @@ let userPrompt = "Do you want to hit or pass? (hit, pass)"
 
 repeat {
     //prompt to get user name
-    print("WELCOME TO BLACKJACK \n What is you name?")
+    print("WELCOME TO BLACKJACK \n What is your name?")
     let userName = getUserInput()
     game.player.playerName = userName
     //start of inner repeat while
     repeat {
         print(userPrompt)
         let userHitOrPassResponse = getUserInput()
-        var playerHand = game.player.cards
+        //var playerHand = game.player.cards
         //control flow of whether or not user response with a hit or pass response
         
         // if user hits card will be given to the user
         if userHitOrPassResponse == "hit" {
             let userCard = game.hitMe()
-            continueGame = game.gameStatus(playerInputCards: playerHand)
-            playerHand.append(userCard)
+            continueGame = game.gameStatus(playerInputCard: userCard)
+            //playerHand.append(userCard)
 
             //prints what the user sees
             var score = game.player.score
