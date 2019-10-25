@@ -32,17 +32,15 @@ class Game {
     //get a value from the computer to be from the value of a random deck of cards
     var randomComputerScore:Int {
         deck = deck.shuffled()
-        guard let computerCard = deck.popLast()?.value else { return Int.random(in: 12...21) }
+        guard let computerCard = deck.popLast()?.value else { return Int.random(in: 15...21) }
         return computerCard
     }
     
     //methods
     func newGame () {
         deck = Card.newDeck(aceValue: 11)
-        player.cards.removeAll()
-        player.score = 0
-        player.playerName = ""
-        hitPlayer = true
+        player = Player(score: 0, cards: [], playerName: "")
+        hitPlayer = false
     }
     
     func stopHits () {
@@ -52,12 +50,11 @@ class Game {
     func hitMe() -> Card? {
         deck = deck.shuffled()
         let playerCard = deck.popLast()
-        //var playerCards = player.cards.append(playerCard)
         return playerCard
     }
     
+    //computers perspective
     func computerVsPlayer() {
-        //let computerScore = randomComputerScore
         let playerScore = player.score
         let computerScore = randomComputerScore
         
@@ -85,21 +82,17 @@ class Game {
         for card in playerHand {
             playerCurrentScore += card.value
         }
-            
-        switch hitPlayer {
-        case playerCurrentScore == blackJack:
+        
+        if playerCurrentScore == blackJack {
             print("BLACKJACK")
-            hitPlayer = false
-        case playerCurrentScore < blackJack:
-            print("CONTINUE")
-            hitPlayer = true
-        case playerCurrentScore > blackJack:
+            return false
+        } else if playerCurrentScore > blackJack {
             print("BUST")
-            hitPlayer = false
-        default:
-            break
+            return false
+        } else {
+            return true
         }
-        return hitPlayer
+            
     }
     
 }
