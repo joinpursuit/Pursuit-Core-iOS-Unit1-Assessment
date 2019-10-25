@@ -16,8 +16,10 @@ var game = Game()
 game.newGame()
 var gameOver = true
 
+print("The game is : BlackJack!")
+
 repeat{
-    print("The game is : BlackJack!")
+
     print("Do you want to hit or pass?")
     let userResponse = readLine() ?? ""
     //repeat{
