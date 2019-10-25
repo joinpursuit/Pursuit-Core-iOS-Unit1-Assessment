@@ -8,20 +8,22 @@
 
 import Foundation
 
-struct Player {
+class Player {
     var score = 0
     var playersCards = [Card]()
     
-    mutating func playerScore() -> Int {
+    init(score: Int,
+         playerCards: [Card]) {
+        self.score = score
+        self.playersCards = playerCards
+    }
+    
+    func playerScore() -> Int {
         for card in playersCards {
             self.score += card.value
     }
         return score
 }
-    
-    
-    
-    
     
     
     
