@@ -14,7 +14,7 @@ class Game {
     // instance properties
     var deck = [Card]()
     var player = Player(score: 0, cards: [String](), playerName: "No Name")
-    var hitPlayer = false
+    var hitPlayer = false // not used 
 
 
     // computed properties
@@ -69,8 +69,9 @@ class Game {
         if player.score == 21 {
             print("BLACKJACK!! YOU WIN! 🏆 🥳 🏆 🥳 🏆 🥳 🏆")
         } else if player.score > 21 {
-            print("BUST!")
-        } 
+            print("BUST! 🙅🏻‍♀️ 🙅🏻‍♀️ 🙅🏻‍♀️")
+        }
+        print()
     }
     
 }

@@ -30,7 +30,7 @@ game.newGame()
 
 var gameOver = false
 
- print("Please enter you name")
+ print("Welcome to Blackjack! ♦️ ♠️ ♥️ ♣️ I will be your digital dealer. ♦️ ♠️ ♥️ ♣️ Please tell me your name.")
  let name = readLine() ?? "No Name"
  // creating player
  let player1 = Player(score: 0, cards: [String](), playerName: name.capitalized)
@@ -38,7 +38,6 @@ var gameOver = false
  print("Hello \(game.player.playerName)")
 
  
-
 repeat {
 
     var userSelection = ""
@@ -49,24 +48,35 @@ repeat {
         
         if userSelection == "hit" {
             game.hitMe()
-            print(game.deck.count)
             
-            // print(game1.player.score)
         } else if userSelection == "pass" {
             game.stopHits() // i think
+        } else {
+            print("Please only enter hit or pass")
+            userSelection = "hit" // to allow the user to be asked again
         }
         print()
     } while game.player.score < 21 && userSelection == "hit"
     
     game.gameStatus()
+    print("♦️ ♠️ ♥️ ♣️ ♦️ ♠️ ♥️ ♣️ ♦️ ♠️ ♥️ ♣️ ♦️ ♠️ ♥️ ♣️ ♦️ ♠️ ♥️ ♣️ ♦️ ♠️ ♥️ ♣️")
+    print()
     
-    print("Would you like to try your luck out again? (yes, no)")
-    let playAgain = readLine() ?? ""
-    if playAgain == "no" {
-        gameOver = true
-    } else if playAgain == "yes" {
-        game.newGame()
-    }
+    var playAgain = ""
+    
+    repeat {
+        print("Would you like to try your luck out again? (yes, no)")
+        playAgain = readLine() ?? ""
+        if playAgain == "no" {
+            gameOver = true
+        } else if playAgain == "yes" {
+            game.newGame()
+        } else {
+            print("Please enter yes or no")
+        }
+        print()
+    } while playAgain != "no" && playAgain != "yes"
+    
     
 } while !gameOver
 
