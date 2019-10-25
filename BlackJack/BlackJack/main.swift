@@ -20,14 +20,10 @@ func getUserInput() -> String{
     return userInput
 }
 
-//prompt to get user name
-print("WELCOME TO BLACKJACK \n What is you name?")
-let userName = getUserInput()
-
 // created instances of objects relevant toward the creation of the game like Player and Card
-var deckOfCards = Card.newDeck(aceValue: 11)
-var player = Player(score: 0, cards: [], playerName: userName)
-let game = Game(deck: deckOfCards, player: player, hitPlayer: false)
+//var deckOfCards = Card.newDeck(aceValue: 11)
+//var player = Player(score: 0, cards: [], playerName: userName)
+let game = Game(deck: Card.newDeck(aceValue: 11), player: Player(score: 0, cards: [], playerName: ""), hitPlayer: false)
 //game.newGame()
 
 var gameOver = false
@@ -35,12 +31,15 @@ var continueGame = true
 let userPrompt = "Do you want to hit or pass? (hit, pass)"
 
 repeat {
-    
+    //prompt to get user name
+    print("WELCOME TO BLACKJACK \n What is you name?")
+    let userName = getUserInput()
+    game.player.playerName = userName
     //start of inner repeat while
     repeat {
         print(userPrompt)
         let userHitOrPassResponse = getUserInput()
-         var playerHand = player.cards
+        var playerHand = game.player.cards
         //control flow of whether or not user response with a hit or pass response
         
         // if user hits card will be given to the user
@@ -50,7 +49,7 @@ repeat {
             playerHand.append(userCard)
 
             //prints what the user sees
-            var score = player.score
+            var score = game.player.score
             var userCardString = String()
             userCardString += userCard.stringify() + " "
             score += userCard.value
@@ -65,8 +64,7 @@ repeat {
     //end of inner repeat while
     
     
-    // prompt the user whether or not they want to keep
-    // playing
+    // prompt the user whether or not they want to keep playing
     print("Do you wish to continue playing? (yes, no)")
     let userContinue = getUserInput()
     if userContinue == "yes" {

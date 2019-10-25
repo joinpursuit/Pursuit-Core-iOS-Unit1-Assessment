@@ -58,7 +58,7 @@ class Game {
     
     //computers perspective
     func computerVsPlayer() {
-        let playerScore = player.score
+        let playerScore = self.player.score
         let computerScore = randomComputerScore
         
         if playerScore > computerScore{
@@ -67,8 +67,8 @@ class Game {
             print("Computer Won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if computerScore == blackJack {
             print("Computer wins with BLACKJACK!!! \(player.playerName): \(playerScore) Computer: \(computerScore)")
-        } else if playerScore == blackJack && computerScore == blackJack {
-            print("Game is tied. Both players have BLACKJACK!!!")
+        } else if playerScore == computerScore {
+            print("Game is tied.")
         }
     }
     
@@ -77,7 +77,7 @@ class Game {
         
         //var truOfalse:Bool
         
-        var playerCurrentScore = player.score
+        var playerCurrentScore = self.player.score
         
         //for loop to access the value of each card
         for card in playerHand {
