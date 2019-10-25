@@ -10,7 +10,7 @@ import Foundation
 
 class Game {
     var deck = [Card]()
-    let player = Player(score: <#T##Int#>, cards: <#T##[Card]#>, playerName: <#T##String#>)
+    var player = Player(score: 0, cards: [], playerName: "Yulia") // something is incorrectr here
     var hitPlayer = Bool()
     
     var hasMoreCards: Bool {
@@ -25,11 +25,11 @@ class Game {
     }
     
     func newGame() {
-        var score = 0
+        player.score = 0
         deck.removeAll() // double check that this is waht I want to remove
     }
     
-    func stopHits() {
+    func computerVsPlayer() { // for now I think it completelly substiture stopFits method
         if randomComputerScore > player.score {
             print("You lost!")
         } else {
@@ -38,9 +38,20 @@ class Game {
     }
     
     func hitMe() {
-      // generate random card
-        // adds scre
-        // prints card and score
+        var shuffledDeck = deck.shuffled() // shuffle the deck
+        let randomCardForPlayer = shuffledDeck.removeLast() //removes element from deck array and returns it
+        player.score += randomCardForPlayer.value// adds score
+        print("\(randomCardForPlayer) score: \(player.score)")// prints card and score // decide how to print following random cards
+    }
+    
+    func gameStatus() {
+        if player.score == 21 {
+            print("BlackJack")
+        } else if player.score > 21 {
+            print("Bust")
+        } else {
+            print("Continue")
+        }
     }
 }
 

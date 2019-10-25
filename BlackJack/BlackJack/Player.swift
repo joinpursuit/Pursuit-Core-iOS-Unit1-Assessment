@@ -11,5 +11,5 @@ import Foundation
 struct Player {
     var score: Int
     var cards: [Card]
-    let playerName: String
+    var playerName: String
 }

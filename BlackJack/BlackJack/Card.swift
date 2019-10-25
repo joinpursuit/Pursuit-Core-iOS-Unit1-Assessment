@@ -12,7 +12,7 @@ import Foundation
 // 1. Follow steps from Suit.swift section in the assessment README
 // 2. Follow steps from FaceCard.swift section in the assessment README
 
-struct Card {
+struct Card { // added Equatable to remove elements from [Card] in game file
   var suit: Suit
   var value: Int
   var isFaceCard: Bool
