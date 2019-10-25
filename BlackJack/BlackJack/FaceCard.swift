@@ -8,12 +8,19 @@
 
 import Foundation
 
-enum FaceCard: String {
-    
+enum FaceCard: String, CaseIterable {
     case jack = "🎃"
     case queen = "👸"
     case king = "🤴"
+
+    
 }
 
 
-extension FaceCard: CaseIterable {}
+
+//enum Suit: CaseIterable {
+//    case diamond = "♦️"
+//    case heart = "❤️"
+//    case spade = "♠️"
+//    case club = "♣️"
+//}

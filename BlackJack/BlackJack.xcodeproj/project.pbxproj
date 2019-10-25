@@ -67,10 +67,10 @@
 		576D1E5E2356839800765B16 /* BlackJack */ = {
 			isa = PBXGroup;
 			children = (
-				576D1E682356845300765B16 /* Card.swift */,
 				BEBC8AF62361F7A400BE7768 /* Suit.swift */,
 				BEBC8AF82361F7CA00BE7768 /* FaceCard.swift */,
 				BEBC8AFA2361F7E700BE7768 /* Player.swift */,
+				576D1E682356845300765B16 /* Card.swift */,
 				BEBC8AFC2361F80800BE7768 /* Game .swift */,
 				576D1E5F2356839800765B16 /* main.swift */,
 			);
