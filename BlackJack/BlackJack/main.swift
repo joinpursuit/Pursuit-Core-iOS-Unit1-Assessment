@@ -23,15 +23,16 @@ repeat{
     let userResponse = readLine() ?? ""
     switch userResponse {
     case "hit" :
-        game.hitMe()
-        game.gameStatus()
+        if let card = game.hitMe() {
+            print(game.gameStatus(card: card))
+        }
     case "pass" :
         game.stopHits()
-        game.gameStatus()
+        //print(game.gameStatus())
     default :
         print("Not valid. Try typing \'hit\' or \'pass\'")
     }
 
-}while gameOver == true
+}while game.hasMoreCards
 
 

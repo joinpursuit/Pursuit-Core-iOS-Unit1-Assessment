@@ -29,28 +29,32 @@ class Game {
     func newGame() {
         player = Player(score: 0, playerCards: [Card]())
         deck = Card.newDeck(aceValue: 1)
-        _ = hasMoreCards
     }
     
     //2.
     //if pass, computer score is generated at a random number in a range
     func stopHits() {
-
-            print("computer score:\(computerVPlayer())")
-
+        print("computer score:\(computerVPlayer())")
+        
+        
     }
     
     //3.
     //if hit me, card is removed from deck and added to player's hand.
-    func hitMe() { //userResponse: String, hit: Bool
-            deck = deck.shuffled()
-            if let hitCard = deck.popLast() {
-                player.playersCards.append(hitCard)
-            }
-            let playerHand = player.playersCards.map { (Card) -> String in
-                Card.stringify()
-            }
-            print(playerHand)
+    func hitMe() -> Card? { //userResponse: String, hit: Bool
+        var card: Card?
+        deck = deck.shuffled()
+        if let hitCard = deck.popLast() {
+            player.score += hitCard.value
+            player.playersCards.append(hitCard)
+            card = hitCard
+            let _ = gameStatus(card: hitCard)
+        }
+        let playerHand = player.playersCards.map { (card) -> String in
+            card.stringify()
+        }
+        print(playerHand)
+        return card
     }
     
     //4.
@@ -62,34 +66,54 @@ class Game {
     //5.
     //comparing player's score with computer's score.
     //choices to continue, bust/lose, blackjack/win
-    func gameStatus() {
-        let score = player.playerScore()
-
-        if score == 21 {
-            print("BlackJack! You won!🥳")
-            print("your score: \(score)")
-        } else if score < 21 {
-            print("your score: \(score)")
-            let userResponse = readLine() ?? ""
-            switch userResponse {
-            case "hit" :
-                hitMe()
-                print("your score: \(score)")
-            case "pass" :
-                stopHits()
-                print("your score: \(score)")
-            default :
-                print("not valid")
-            }
-        } else if score < computerVPlayer() {
-            print("BUST! \nYou lost! 😢")
-
-        } else if score == computerVPlayer() {
-            print("It's a tie! 😅")
-        } else {
-            print("?")
+    func gameStatus(card: Card) -> Int {
+        
+                
+        if player.score == 21 {
+            print("BlackJack! You won! 🥳")
         }
-}
+        else if player.score > 21 {
+            print("BUST! You Lost 😢")
+        }
+        return player.score
+        
+//
+//        repeat{
+//            let userResponse = readLine() ?? ""
+//            switch userResponse {
+//            case "hit" :
+//                let _ = hitMe()
+//                print("player's score: \(player.score)")
+//            case "pass" :
+//                stopHits()
+//                break
+//            default :
+//                print("?")
+//            }
+//        } while player.score < 21
+//
+//        if player.score == 21 {
+//            print("BlackJack! You won! 🥳")
+//        }
+//        if player.score < computerVPlayer() {
+//            print("BUST! You Lost 😢")
+//        }
+//        return player.score
+    }
     
-
+    
+    
+    
+    
+    
+    
+    
+    //ends class
 }
+
+
+
+
+
+
+

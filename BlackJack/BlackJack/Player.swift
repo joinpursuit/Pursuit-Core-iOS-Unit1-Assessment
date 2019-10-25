@@ -18,12 +18,12 @@ class Player {
         self.playersCards = playerCards
     }
     
-    func playerScore() -> Int {
-        for card in playersCards {
-            self.score += card.value
-    }
-        return score
-}
+//    func playerScore() -> Int {
+//        for card in playersCards {
+//            self.score += card.value
+//    }
+//        return score
+//}
     
     
     
