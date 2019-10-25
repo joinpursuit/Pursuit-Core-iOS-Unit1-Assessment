@@ -8,7 +8,37 @@
 
 import Foundation
 
-let game = Game()
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
 print("There are \(Card.newDeck(aceValue: 1).count) cards in a deck of cards")
-// There are 52 in a deck of cards
+
+let playGame = Game()
+playGame.newGame()
+playGame.deck = Card.newDeck(aceValue: 1)
+
+print("Welcome to BILLIE BETTE's BIG HOUSE OF BLACKJACK!")
+print()
+print("Please enter your name.")
+let playerName: String = readLine() ?? "Johnnie Doe"
+
+print("HEY THERE \(playerName)!")
+print()
+print("Happy to make your aquaintence today!")
+
+
+var gameOver = false
+
+repeat {
+    
+    print("My dealer is willin' and ready. Hit or Pass, Darlin'?")
+   var playersResponse = readLine() ?? ""
+    switch playersResponse {
+    case "hit" :
+        playGame.hitMe()
+    case "pass" :
+        playGame.stopHits()
+    default :
+        print("Not a valid input.")
+    }
+    
+} while playGame.player.score < 21
+
+//going to bed now
