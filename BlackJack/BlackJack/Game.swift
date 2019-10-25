@@ -83,7 +83,7 @@ class Game {
         //add the hitted card to the players hand
         playerHand.append(hitCard)
         
-        //players current score - should be zero,but is given from the initialized player.score in the main.swift file
+        //players current score - should be given from the initialized player.score in the main.swift file,but is zero
         var playerCurrentScore = 0
         
         //for loop to access the value of each card in the players hand, and sum them up
