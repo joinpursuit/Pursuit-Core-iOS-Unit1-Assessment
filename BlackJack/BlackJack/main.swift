@@ -28,6 +28,10 @@ repeat {
                 print("You busted! House wins!")
                 break
             }
+            if game.player.score == 21 {
+                print("Blackjack! You win!")
+                break
+            }
         } else if hitOrStay == "stay"{
             game.hitPlayer = false
             print(game.computerVsPlayer(game.player.score))
