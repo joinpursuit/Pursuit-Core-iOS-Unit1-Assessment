@@ -8,14 +8,12 @@
 
 import Foundation
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of card
+
 var game = Game()
 let gamePrompt = "Do you want to hit or stay (hit, stay)"
 var gameOver = false
-let shuffledDeck = game.newGame()
-print(shuffledDeck)
+var playAgain = false
+var shuffledDeck = game.newGame()
 
 
 
@@ -23,8 +21,7 @@ print(shuffledDeck)
 
 
 repeat {
-
-
+    
 repeat {
      
     print(gamePrompt)
@@ -41,5 +38,17 @@ repeat {
     }
     
 } while !gameOver
-
-} while 
+    print("Do you want to play again? yes or no")
+    let playerPlayAgain = readLine() ?? " "
+    if playerPlayAgain == "yes" {
+        
+        shuffledDeck.removeAll()
+        shuffledDeck = game.newGame()
+        playAgain = true
+    } else {
+        print("Thanks for Playing")
+        playAgain = false
+    }
+    
+    
+} while playAgain

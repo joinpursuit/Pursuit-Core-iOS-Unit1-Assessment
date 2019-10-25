@@ -81,7 +81,7 @@ class Game {
             gameOver = true
         } else {
            print("\(player.score) player and \(computerScore) computer")
-            print("COMPUTER WAS CLOSEST WITHOUT GOING OVER! YOU LOSE!")
+            print("You Lose")
             gameOver = true
         }
     }
