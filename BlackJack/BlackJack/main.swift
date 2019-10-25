@@ -24,10 +24,9 @@ print("""
 
 
 // creating instance of Game
-var game1 = Game()
+var game = Game()
 // class newGame on instance
-game1.newGame()
-game1.deck = Card.newDeck(aceValue: 1)
+game.newGame()
 
 var gameOver = false
 
@@ -35,8 +34,8 @@ var gameOver = false
  let name = readLine() ?? "No Name"
  // creating player
  let player1 = Player(score: 0, cards: [String](), playerName: name.capitalized)
- game1.player = player1
- print("Hello \(game1.player.playerName)")
+ game.player = player1
+ print("Hello \(game.player.playerName)")
 
  
 
@@ -49,26 +48,26 @@ repeat {
         userSelection = readLine() ?? ""
         
         if userSelection == "hit" {
-            game1.hitMe()
-            print(game1.deck.count)
+            game.hitMe()
+            print(game.deck.count)
             
             // print(game1.player.score)
         } else if userSelection == "pass" {
-            game1.stopHits() // i think
+            game.stopHits() // i think
         }
         print()
-    } while game1.player.score < 21 && userSelection == "hit"
+    } while game.player.score < 21 && userSelection == "hit"
     
-    game1.gameStatus()
+    game.gameStatus()
     
     print("Would you like to try your luck out again? (yes, no)")
     let playAgain = readLine() ?? ""
     if playAgain == "no" {
         gameOver = true
     } else if playAgain == "yes" {
-        game1.newGame()
+        game.newGame()
     }
     
 } while !gameOver
 
-print("Thanks for playing Jack, Uh I mean \(game1.player.playerName)! I hope you had fun 😬.")
+print("Thanks for playing Jack, Uh I mean \(game.player.playerName)! I hope you had fun 😬.")
