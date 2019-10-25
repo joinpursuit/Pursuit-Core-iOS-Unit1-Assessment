@@ -77,7 +77,7 @@ repeat {
     game.hitMe(userChoice: userChoice)
     game.stopHits(userChoice: userChoice)
 
-    game.computerVsPlayer()
+
     
     
     
