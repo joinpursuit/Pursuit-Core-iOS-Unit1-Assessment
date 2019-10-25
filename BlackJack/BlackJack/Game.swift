@@ -19,10 +19,10 @@ class Game {
     }
     var randomComputerScore: Int {
         let rangeScore = 17..<22
-        for score in rangeScore {
+        for _ in rangeScore {
             return rangeScore.randomElement() ?? 17
         }
-        
+     return rangeScore.randomElement() ?? 17
     }
     //I'm not sure what I'm missing here. Is this not the way I'd declare a class
 //init(deck: [Card],

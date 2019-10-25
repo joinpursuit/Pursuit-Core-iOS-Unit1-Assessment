@@ -22,13 +22,12 @@ let playerName: String = readLine() ?? "Johnnie Doe"
 print("HEY THERE \(playerName)!")
 print()
 print("Happy to make your aquaintence today!")
-
-//playGame.
+print("My dealer is willin' and ready.")
+// playGame.hitMe()
 var gameOver = false
-
+print("Hit or Pass, Darlin'?")
 repeat {
     
-    print("My dealer is willin' and ready. Hit or Pass, Darlin'?")
    let playersResponse = readLine() ?? ""
     switch playersResponse {
     case "hit" :
