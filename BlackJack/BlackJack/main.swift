@@ -31,6 +31,7 @@ let game = Game(deck: deckOfCards, player: player, hitPlayer: false)
 //game.newGame()
 
 var gameOver = false
+var continueGame = true
 let userPrompt = "Do you want to hit or pass? (hit, pass)"
 
 repeat {
@@ -39,15 +40,16 @@ repeat {
     repeat {
         print(userPrompt)
         let userHitOrPassResponse = getUserInput()
-        
+         var playerHand = player.cards
         //control flow of whether or not user response with a hit or pass response
         
         // if user hits card will be given to the user
-        if userHitOrPassResponse.contains("hit") {
+        if userHitOrPassResponse == "hit" {
             let userCard = game.hitMe()
-            var playerHand = player.cards
+            continueGame = game.gameStatus(playerInputCards: playerHand)
             playerHand.append(userCard)
-            
+
+
             //prints what the user sees
             var score = 0
             var userCardString = String()
@@ -56,11 +58,12 @@ repeat {
                 score += card.value
             }
             print(userCardString, "score: \(score)")
-        } else if userHitOrPassResponse.contains("pass") {
+        } else if userHitOrPassResponse == "pass" {
             // returns whether or not the user won the game
             game.stopHits()
+            continueGame = false
         }
-    } while game.gameStatus(playerInputCards: player.cards)
+    } while continueGame
     //end of inner repeat while
     
     

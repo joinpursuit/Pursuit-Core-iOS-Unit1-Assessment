@@ -44,12 +44,15 @@ class Game {
     }
     
     func stopHits () {
+        hitPlayer = false
         computerVsPlayer()
     }
     
-    func hitMe() -> Card? {
+    func hitMe() -> Card {
         deck = deck.shuffled()
-        let playerCard = deck.popLast()
+        guard let playerCard = deck.popLast() else {
+            return deck[Int.random(in: 1...52)]
+        }
         return playerCard
     }
     
@@ -62,8 +65,6 @@ class Game {
             print("You won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if playerScore < computerScore{
             print("Computer Won. \(player.playerName): \(playerScore) Computer: \(computerScore)")
-        } else if playerScore == blackJack{
-            print("BLACKJACK!!! YOU WON!!!")
         } else if computerScore == blackJack {
             print("Computer wins with BLACKJACK!!! \(player.playerName): \(playerScore) Computer: \(computerScore)")
         } else if playerScore == blackJack && computerScore == blackJack {
