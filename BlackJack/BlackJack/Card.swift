@@ -13,9 +13,9 @@ import Foundation
 // 2. Follow steps from FaceCard.swift section in the assessment README
 
 struct Card {
-  var suit: Suit
-  var value: Int
-  var isFaceCard: Bool
+    var suit =  Suit(rawValue: "") ?? Suit(rawValue: "♦️")
+  var value = 0
+  var isFaceCard = true
   var face: FaceCard?
   
   func stringify() -> String {
@@ -25,7 +25,7 @@ struct Card {
     } else {
       cardStr += self.value.description
     }
-    cardStr += self.suit.rawValue
+    cardStr += self.suit?.rawValue ?? "♦️"
     return cardStr
   }
   

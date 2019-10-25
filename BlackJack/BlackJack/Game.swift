@@ -12,17 +12,14 @@ class Game {
     var deck: [Card] = []
     var player = Player(score: 0, cards: [], playerName: "Andrea")
     var hitPlayer = true
-    var computerScore = 0
+   
     
     var hasMoreCards: Bool {
         return !deck.isEmpty
     }
     var randomComputerScore: Int {
-        let rangeScore = 17..<22
-        for _ in rangeScore {
-            return rangeScore.randomElement() ?? 17
-        }
-     return rangeScore.randomElement() ?? 17
+        let rangeScore = Int.random(in: 17..<22)
+       return rangeScore
     }
     //I'm not sure what I'm missing here. Is this not the way I'd declare a class
 //init(deck: [Card],
@@ -36,28 +33,30 @@ class Game {
         func newGame() {
             deck = Card.newDeck(aceValue: 1)
             player.score = 0
-            computerScore = 0
+            
         }
     
     
 
 func stopHits() {
-    //not sure yet???
-    //if/else statement?
+    computerVsPlayer()
 }
+    
 //removeAll maybe
-func hitMe() -> Card {
- deck = deck.shuffled()
-    return deck.removeLast()
+    func hitMe() -> Card? {
+var playersCard = deck.shuffled()
+let randCard = playersCard.popLast()
+return randCard
 }
 
 func computerVsPlayer() {
-    if player.score > computerScore {
+    
+    if player.score > randomComputerScore {
         print("You scored \(player.score) points. Dealer scores \(randomComputerScore)")
         print("Congratulations Rain Man! You're a winner!")
         print()
         print("And FILTHY RICH!!!")
-    } else if computerScore > player.score {
+    } else if randomComputerScore > player.score {
         print("I guess beginner's luck ain't so lucky!")
         print("Feel free to give us your money anytime.")
         print()
@@ -70,10 +69,13 @@ func computerVsPlayer() {
         
 //if statement instead???
         
-func gameStatus() {
-    switch player.score {
+   func gameStatus(pointsPerCard : Int) -> Int  {
+    player.score += pointsPerCard
+     let newScore = player.score
+    switch newScore {
     case 21...32 :
         print("BUSTER!! You Lose. 🙂🙃🙂🙃🙂🙃")
+        gameOver = true
     case 21 :
          print("BLACKJACK BAYBEEEEEEE!🤯")
     case 1..<21 :
@@ -81,7 +83,8 @@ func gameStatus() {
     default:
         print("Continue playing")
    }
+    return newScore
 }
 
 }
-//}
+
