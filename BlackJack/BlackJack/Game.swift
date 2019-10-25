@@ -11,7 +11,7 @@ import Foundation
 class Game {
     var deck = [Card]()
     var player: Player
-    var hitPlayer: Bool
+    var hitPlayer: Bool = true
     
     init(deck: [Card], player: Player, hitPlayer: Bool) {
         self.deck = deck
@@ -24,8 +24,8 @@ class Game {
     }
     
     var randomComputerScore: Int {
-        
-        return player.score
+     
+     return deck.endIndex
     }
     
     func newGame() {
@@ -33,22 +33,31 @@ class Game {
     }
     // gotta work on this function more
     
-    func hitMe(userChoice: String) {
+     func hitMe(userChoice: String) -> Card? {
         //called as the user requests more cards from the deck
-        if userChoice == "hit" {
-            for card in deck{
-                print(card)
-                if card.value < 21{
-                    print(gamePrompt)
-                }
-            }
-        }
-    }
-    
+          if userChoice == "hit" {
+               deck = Card.newDeck(aceValue: 1)
+               deck = deck.shuffled()
+               let card = deck.randomElement()
+//               var face = Card.stringify()
+               player.score += card!.value
+               print(card?.stringify() ?? "")
+               print("Player Score: \(player.score)")
+               }
+               //add tie later
+          return deck.popLast()
+          }
+
     func stopHits(userChoice: String) {
-        //draws a random number for the computer and determines the winner of the game.
+        //called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
         if userChoice == "pass"{
-            print("djsn")
+          deck = deck.shuffled()
+          let card = deck.randomElement()
+          if player.score > randomComputerScore{
+               print("\(player.score) - The player wins this round!")
+          } else if randomComputerScore > player.score {
+               print("\(randomComputerScore) - The computer wins this round!")
+          }
         }
     }
     
@@ -56,9 +65,6 @@ class Game {
         //draws a random number for the computer and determines the winner of the game.
         
     }
-    
-    
-    
     
     
 }

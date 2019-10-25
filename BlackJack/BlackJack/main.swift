@@ -67,18 +67,20 @@ var gamePrompt = """
 Please type in 'hit' or 'pass'.
 """
 
-//let game = Game
-var bool = false
-
-let game = Game(deck: [Card](), player: Player(score: 0, cards: [Card](), playerName: ""), hitPlayer: bool)
+let game = Game(deck: [Card](), player: Player(score: 0, cards: [Card](), playerName: ""), hitPlayer: true)
 //probably needs to be fixed
 
 print(gameIntro)
 repeat {
     print(gamePrompt)
     var userChoice = readLine()?.lowercased() ?? ""
-    
     game.hitMe(userChoice: userChoice)
     
-    
+//    repeat{
+////        print(gamePrompt)
+////        userChoice = readLine()?.lowercased() ?? ""
+////        game.hitMe(userChoice: userChoice)
+////
+//        print("Thanks for playing!")
+//    } while true
 } while true
