@@ -17,7 +17,7 @@ var player2Loop = false
 var multiPlayerHitLoop = false
 var player1PassCheck = false
 var player2PassCheck = false
-
+var multiplayerContPrompt = false
 var player = Game.player1.player1Name
 
 print("Welcome to Black Jack!")
@@ -75,13 +75,17 @@ if Game.multiplayer == true {
         
 
         
-        repeat {
+        outerLoop: repeat {
             repeat {
-                
-                print("\n\n\(game.player1currentCards)\n")
+                if Game.player1.score > 21 {
+                      break
+                }
+                print("\n\n\(game.player1Name)s' cards: (\(game.player1currentCards))\n")
                 print("\(game.player1Name) Score: \(game.player1Score)")
                 print("\(game.player2Name) Score: \(game.player2Score)\n")
                 game.player1HitOrPass()
+ 
+    
                 let player1Input = readLine()?.lowercased() ?? "pass"
                 switch player1Input {
                 case "hit":
@@ -89,19 +93,28 @@ if Game.multiplayer == true {
                     multiPlayerHitLoop = true
                 case "pass":
                     player1Loop = false
+                    player1PassCheck = true
                 default:
                     print("Please enter a valid option")
                     player1Loop = true
                 }
-                if game.player1Score > 21 {
-                    break
-                }
+
             } while player1Loop
+            print()
+            print("There are \(game.shuffledDeck.count) cards left in the deck \n")
+            if Game.player1.score > 21 {
+                 player2Loop = false
+            }
             
-            print("There are \(game.shuffledDeck.count) cards left in the deck")
+            if game.player1Score > 21 || game.player2Score > 21 {
+                game.player1VSplayer2()
+                multiPlayerHitLoop = false
+                multiGameOver = false
+                 break outerLoop
+            }
             repeat {
                 
-                print("\n\n\(game.player2currentCards)\n")
+                print("\n\n\(game.player2Name)s' cards: (\(game.player2currentCards))\n")
                 print("\(game.player1Name) Score: \(game.player1Score)")
                 print("\(game.player2Name) Score: \(game.player2Score)\n")
                 game.player2HitOrPass()
@@ -112,22 +125,46 @@ if Game.multiplayer == true {
                     game.hitMePlayer2()
                 case "pass":
                     player2Loop = false
+                    player2PassCheck = true
                 default:
                     print("Please enter a valid option")
                     player2Loop = true
                 }
                 if game.player2Score > 21 {
-                    break
+                    
                 }
             } while player2Loop
-            
-            print("There are \(game.shuffledDeck.count) cards left in the deck")
+            print()
+            print("There are \(game.shuffledDeck.count) cards left in the deck\n")
+            if player1PassCheck && player2PassCheck == true {
+                game.player1VSplayer2()
+                multiPlayerHitLoop = false
+                multiGameOver = false
+                player1PassCheck = false
+                player2PassCheck = false
+            }
             if game.player1Score > 21 || game.player2Score > 21 {
                 game.player1VSplayer2()
-                break
+                multiPlayerHitLoop = false
+                multiGameOver = false
             }
         } while multiPlayerHitLoop
         
-    } while multiGameOver
-    
-} // Multiplayer true loop
+        repeat {
+        print("Would you like to play again? (yes, no)")
+        let userInput = readLine()?.lowercased() ?? "no"
+        switch userInput {
+        case "yes":
+            multiGameOver = true
+            game.newGame()
+        case "no":
+            print("Goodbye!")
+            multiGameOver = false
+        default:
+            print("Please select a valid option")
+            multiplayerContPrompt = true
+            }
+        } while multiplayerContPrompt
+        } while multiGameOver
+    }
+

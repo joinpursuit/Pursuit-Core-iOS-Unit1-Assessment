@@ -37,8 +37,21 @@ class Game {
     func newGame() {
         Game.deck = Card.newDeck(aceValue: 1)
         player1Score = 0
+        player2Score = 0
         player1currentCards.removeAll()
+        player2currentCards.removeAll()
         shuffledDeck = Game.deck.shuffled()
+    }
+    func print2PlayerScores() {
+        print("""
+            
+        \(player1Name): \(player1currentCards)
+        Score: \(player1Score)
+            
+        \(player2Name): \(player2currentCards)
+        Score: \(player2Score)
+            
+        """)
     }
     func hitMe() {
         let randomCard = shuffledDeck.first
@@ -62,19 +75,10 @@ class Game {
     func hitMePlayer1() {
         let randomCard = shuffledDeck.first
         player1Score += (randomCard?.value ?? 0)
+        player1currentCards.append(" ")
         player1currentCards.append(randomCard?.stringify() ?? "")
         player1currentCards.append(" ")
-//        print("\n\n\(player1currentCards)\n")
-//        print("\(player1Name) Score: \(player1Score)")
-//        print("\(player2Name) Score: \(player2Score)\n")
         shuffledDeck.removeFirst()
-        
-        //        if player1Score == 21 {
-        //            print("Black Jack! \(Game.player1.player1Name) wins!")
-        //        }
-        //        if player1Score >= 22 {
-        //            print("Bust!\(Game.player1.player1Name) lost!")
-        //        }
         if hasMoreCards == false {
             print("The deck is empty, would you like to start over?")
         }
@@ -82,19 +86,10 @@ class Game {
     func hitMePlayer2() {
         let randomCard = shuffledDeck.first
         player2Score += (randomCard?.value ?? 0)
+        player2currentCards.append(" ")
         player2currentCards.append(randomCard?.stringify() ?? "")
         player2currentCards.append(" ")
-//        print("\n\n\(player2currentCards)\n")
-//        print("\(player1Name) Score: \(player1Score)")
-//        print("\(player2Name) Score: \(player2Score)\n")
         shuffledDeck.removeFirst()
-        
-        //        if player2Score == 21 {
-        //            print("Black Jack! \(Game.player2.player1Name) wins!")
-        //        }
-        //        if player2Score >= 22 {
-        //           print("Bust!\(Game.player2.player1Name) lost!")
-        //        }
         if hasMoreCards == false {
             print("The deck is empty, would you like to start over?")
         }
@@ -102,14 +97,23 @@ class Game {
     func player1VSplayer2() {
         if player1Score == player2Score {
             print("Its a tie!")
+            sleep(1)
+        } else if player1Score > 21 {
+            print("\(player1Name) busts! \(player2Name) wins!!!")
+            sleep(1)
+            print2PlayerScores()
+        } else if player2Score > 21 {
+            print("\(player2Name) busts! \(player1Name) wins!!!")
+            sleep(1)
+           print2PlayerScores()
         } else if player1Score > player2Score {
             print("\(player1Name) WINS!!")
+            sleep(1)
+            print2PlayerScores()
         } else if player1Score < player2Score {
             print("\(player2Name) WINS!!")
-            print("""
-                \(player1Name) Score:\(player1Score)
-                \(player2Name) Score:\(player2Score)
-                """)
+            sleep(1)
+            print2PlayerScores()
         }
     }
     
