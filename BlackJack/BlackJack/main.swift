@@ -28,11 +28,12 @@ repeat{
         }
     case "pass" :
         game.stopHits()
-        //print(game.gameStatus())
+        
     default :
         print("Not valid. Try typing \'hit\' or \'pass\'")
     }
 
+    
 }while game.hasMoreCards
 
 

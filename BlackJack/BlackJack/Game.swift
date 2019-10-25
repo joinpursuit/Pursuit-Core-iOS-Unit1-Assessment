@@ -67,13 +67,14 @@ class Game {
     //comparing player's score with computer's score.
     //choices to continue, bust/lose, blackjack/win
     func gameStatus(card: Card) -> Int {
-        
-                
         if player.score == 21 {
             print("BlackJack! You won! 🥳")
-        }
-        else if player.score > 21 {
+            gameOver == true
+        } else if player.score > 21 {
             print("BUST! You Lost 😢")
+            gameOver == true
+        } else {
+            gameOver == false
         }
         return player.score
         
