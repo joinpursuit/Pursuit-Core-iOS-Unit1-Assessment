@@ -52,7 +52,7 @@ repeat {
             var score = game.player.score
             var userCardString = String()
             userCardString += userCard.stringify() + " "
-            score += userCard.value
+            //score += userCard.value
             
             print(userCardString, "score: \(score)")
         } else if userHitOrPassResponse == "pass" {
