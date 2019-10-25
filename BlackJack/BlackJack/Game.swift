@@ -72,6 +72,8 @@ func computerVsPlayer() {
    func gameStatus(pointsPerCard : Int) -> Int  {
     player.score += pointsPerCard
      let newScore = player.score
+    
+    
     switch newScore {
     case 21...32 :
         print("BUSTER!! You Lose. 🙂🙃🙂🙃🙂🙃")
