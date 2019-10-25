@@ -88,6 +88,8 @@ class Game {
         for card in playerHand {
             playerCurrentScore += card.value
         }
+        
+        // stores a given card value back to the game's instance of the score property of player
         self.player.score = playerCurrentScore
         
         if playerCurrentScore == blackJack {
@@ -98,7 +100,10 @@ class Game {
             print("BUST")
             self.hitPlayer = false
             return self.hitPlayer
-        } else {
+        }
+        
+        //else statement where if the player's score is then blackjack, they can still hit until either of the above conditions are true
+        else {
             self.hitPlayer = true
             return self.hitPlayer
         }

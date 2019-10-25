@@ -46,12 +46,20 @@ repeat {
         if userHitOrPassResponse == "hit" {
             let userCard = game.hitMe()
             continueGame = game.gameStatus(playerInputCard: userCard)
-            //playerHand.append(userCard)
+            
+            //attempt to stringify cards
+            var playerHand = game.player.cards
+            playerHand.append(userCard)
+            game.player.cards = playerHand
+            
+            var userCardString = String()
+            for card in game.player.cards{
+                userCardString += card.stringify() + " "
+            }
 
             //prints what the user sees
-            var score = game.player.score
-            var userCardString = String()
-            userCardString += userCard.stringify() + " "
+            let score = game.player.score
+            
             //score += userCard.value
             
             print(userCardString, "score: \(score)")
