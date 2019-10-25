@@ -87,7 +87,7 @@ startloop: repeat {
     
     
     if game.deck.isEmpty {
-        print("Would you like to play again (yes, no)?")
+        print("Would you like to play BlackJack again (yes, no)?")
         let userReplay = readLine()?.lowercased() ?? ""
         if userReplay == "yes"{
             game.newGame()

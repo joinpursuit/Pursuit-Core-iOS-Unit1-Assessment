@@ -76,7 +76,8 @@ class Game {
         //draws a random number for the computer and determines the winner of the game.
      var randomComputerNumber = Card.newDeck(aceValue: 1)
      randomComputerNumber = randomComputerNumber.shuffled()
-     print(randomComputerNumber)
+          let computerNumber = randomComputerNumber.randomElement()
+          print(computerNumber!)
      
     }
     
