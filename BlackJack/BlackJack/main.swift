@@ -49,14 +49,12 @@ repeat {
             continueGame = game.gameStatus(playerInputCards: playerHand)
             playerHand.append(userCard)
 
-
             //prints what the user sees
-            var score = 0
+            var score = player.score
             var userCardString = String()
-            for card in playerHand{
-                userCardString += card.stringify()
-                score += card.value
-            }
+            userCardString += userCard.stringify() + " "
+            score += userCard.value
+            
             print(userCardString, "score: \(score)")
         } else if userHitOrPassResponse == "pass" {
             // returns whether or not the user won the game
@@ -74,7 +72,7 @@ repeat {
     if userContinue == "yes" {
     game.newGame()
       gameOver = true
-    } else {
+    } else if userContinue == "no" {
       gameOver = false
     }
 } while gameOver
