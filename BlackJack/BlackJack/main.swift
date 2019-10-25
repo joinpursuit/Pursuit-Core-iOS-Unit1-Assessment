@@ -34,10 +34,11 @@ repeat{
     if userResponse == "hit"{
         repeat{
             game.hitme()
+            
             game.gameStatus()
             game.hasMoreCards = game.moreHits()
             
-        } while game.player.score <= 20
+        } while game.player.score <= 20 && playAgain == true
         
         game.gameStatus()
         print("Do you want to play again? yes or no ")
@@ -48,31 +49,23 @@ repeat{
         } else {
             playAgain = false
         }
-      else if userResponse == "pass"{
-      game.computerVsPlayer()
-      print("Do you want to play again? yes or no ")
-      let yesOrNo = readLine()?.lowercased() ?? "no"
-      if yesOrNo == "yes"{
-          game.newGame()
-          playAgain = true
-      } else {
-          playAgain = false
-      }
-    }
-    
+        
+    }    else if userResponse == "pass"{
+             playAgain = false
+        game.computerVsPlayer()
+        print("Do you want to play again? yes or no ")
+        let yesOrNo = readLine()?.lowercased() ?? "no"
+        if yesOrNo == "yes"{
+            game.newGame()
+            playAgain = true
+        } else {
+            playAgain = false
+        }
+
     
 }
-    
-}while playAgain
+}while playAgain == true
 
 
-print("Do you want to play again? yes or no ")
-let yesOrNo = readLine()?.lowercased() ?? "no"
-if yesOrNo == "yes"{
-    game.newGame()
-    playAgain = true
-} else {
-    playAgain = false
-}
 
 

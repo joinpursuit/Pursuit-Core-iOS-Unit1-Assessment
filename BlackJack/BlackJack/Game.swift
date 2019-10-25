@@ -43,16 +43,19 @@ class Game {
           player.cards.append(card)
           player.score += card.value
         }
-        print("cards: \(player.cards.map{ $0.stringify() }) score: \(player.score)")
+        print("cards: \(player.cards.map{ $0.stringify() }) score: \(player.score)\n")
     }
 
     func computerVsPlayer(){
-        if  (player.score) > (randomComputerScore){
+        if (player.score) > (randomComputerScore){
         print("You won your score is \(player.score) and my score was \(randomComputerScore)")
+            playAgain = false
         } else if (player.score) < (randomComputerScore) {
          print("You lost you score was \(player.score) and my score was \(randomComputerScore)")
+            playAgain = false
         } else if (player.score) == (randomComputerScore) {
          print("Wow we both had \(player.score), its a tie")
+            playAgain = false
          //draws a random number for the computer and determines the winner of the game.
         }
     }
@@ -61,13 +64,13 @@ class Game {
     func gameStatus(){
         switch player.score{
         case 21:
-            print("BlackJack. You win!! with a score of \(player.score)")
+            print("BlackJack. You win!! with a score of \(player.score)\n")
             print(blackJack)
-           
+           playAgain = false
         case 22..<100:
-            print("Bust !!! Whew, you almost had it your score of \(player.score) is too high")
+            print("Bust !!! Whew, you almost had it your score of \(player.score) is too high\n")
             print(bust)
-           
+           playAgain = false
         default:
             print(" ")
             
