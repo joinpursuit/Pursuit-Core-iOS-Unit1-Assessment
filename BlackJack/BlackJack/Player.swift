@@ -11,5 +11,6 @@ import Foundation
 struct Player {
     var score = Int()
     var cards = [Card]()
-    var playerName = ""
+    var player1Name = ""
+    var player2Name = ""
 }
