@@ -15,37 +15,28 @@ class Game {
     
     var currentCards = String().description
     var shuffledDeck = Game.deck.shuffled()
+    
     var score = 0
     var computerScore = Int.random(in: (17...21))
     var hasMoreCards: Bool {
         return !Game.deck.isEmpty
     }
-
     func newGame() {
         Game.deck = Card.newDeck(aceValue: 1)
         score = 0
         currentCards.removeAll()
         shuffledDeck = Game.deck.shuffled()
     }
-
-    func stopHits() {
-        if Game.player.score > computerScore {
-            print()
-            print("You have won!")
-        } else {
-            print("You have lost")
-        }
-    }
-
     func hitMe() {
-        
         let randomCard = shuffledDeck.first
-        
         score += (randomCard?.value ?? 0)
         currentCards.append(randomCard?.stringify() ?? "")
-        print(currentCards)
-        //print(randomCard?.stringify() ?? 2)
-        print("Total Score: \(score)")
+        currentCards.append(" ")
+        
+        print("\(currentCards)\n")
+
+        print("\(Game.player.playerName) Score: \(score)")
+        
         shuffledDeck.removeFirst()
         
         if score == 21 {
@@ -54,24 +45,26 @@ class Game {
         if score >= 22 {
             print("Bust! You lose!")
         }
-      print("There are \(shuffledDeck.count) left in the deck of cards")
+        if hasMoreCards == false {
+            print("The deck is empty, would you like to start over?")
+        }
     }
-    
     func computerVsPlayer() {
         if computerScore > score {
-            print("You scored: \(score) Computer scored: \(computerScore)")
+            print()
+            print("\(Game.player.playerName) score: \(score) Computer score: \(computerScore)")
             print()
             print("You lost!")
         } else {
-            print("You scored: \(score) Computer scored: \(computerScore)")
+            print()
+            print("\(Game.player.playerName) score: \(score) Computer score: \(computerScore)")
             print()
             print("You won!")
         }
     }
-
-    func gameStatus() {
-        print(Game.deck)
-        print(Game.player.score)
+    func setName() {
+        print("Please enter name: \("")")
+        Game.player.playerName = readLine() ?? "Your"
     }
 }
 
