@@ -11,62 +11,72 @@ import Foundation
 class Game {
 
     var deck = [Card]()
-    var player = Player(score: 0, cards: [], playerName: "tanya")
+    var player = Player(score: 0, cards: [])
     var hitPLayer = true
-    
-    var hasMoreCards:Bool {
-        return true
-    }
+    var playerDealtcards = Array<Any>()
+//    var hasMoreCards:Bool {
+//        return true
+//    }
     
     var randomComputerScore: Int {
-       return .random(in: 10...21)
+       return .random(in: 15...21)
     }
 
-//    init(player: String,
-//        hitplayer: Bool) {
-//        self.player = player
-//        self.hitPLayer =  hitPLayer
-    
-    
     func newGame(){
-        player.cards = Card.newDeck(aceValue: 11)
-        
-       
-        }
-
-    func stopHits(){
-        //called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
+       deck = Card.newDeck(aceValue: 11)
+       hitPLayer = true
+       player.score = 0
+       player.cards.removeAll()
     }
-
+    
+    func moreHits() -> Bool{
+       print(userPrompt)
+       let hitOrPass = readLine()?.lowercased() ?? "pass"
+       if hitOrPass == "hit"{
+        return true
+       }else{
+        return false
+        }
+    }
+        
     func hitme(){
-
+        var shufdeck = deck.shuffled()
+        player.score += (shufdeck.last?.value ?? 0)
+        playerDealtcards.append(shufdeck.last ?? 0)
+        player.cards.append(shufdeck.last ?? <#Card#>)
+        shufdeck.removeLast()
+        print("\(playerDealtcards)    \(player.score)")
+        
     }
 
     func computerVsPlayer(){
-        //draws a random number for the computer and determines the winner of the game.
+        if  (player.score) > (randomComputerScore){
+        print("You won your score is \(player.score) and my score was \(randomComputerScore)")
+        } else if (player.score) < (randomComputerScore) {
+         print("You lost you score was \(player.score) and my score was \(randomComputerScore)")
+        } else if (player.score) == (randomComputerScore) {
+         print("Wow we both had \(player.score), its a tie")
+         //draws a random number for the computer and determines the winner of the game.
+        }
     }
 
-    func gameStatus(_ score:Int) -> Bool{
-        //takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
-        switch score{
+    
+    func gameStatus(){
+        switch player.score{
         case 21:
-           print("BlackJack\n You win!!")
-           print(blackJack)
+            print("BlackJack. You win!! with a score of \(player.score)")
+            print(blackJack)
+            return
         case 22..<100:
-            print("Bust")
+            print("Bust !!! Whew, you almost had it your score of \(player.score) is too high")
             print(bust)
         default:
             print("Continue Playing?")
-
-    }
+            
 }
 
-
-
 }
-
-
-
+}
 
 
 
