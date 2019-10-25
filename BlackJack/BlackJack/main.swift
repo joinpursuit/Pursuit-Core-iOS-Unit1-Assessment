@@ -20,12 +20,12 @@ repeat{
     print("The game is : BlackJack!")
     print("Do you want to hit or pass?")
     let userResponse = readLine() ?? ""
-    repeat{
-        game.gameStatus(userResponse: userResponse)
+    //repeat{
+        print("Do you want to hit or pass?")
+        //game.gameStatus()
         game.hitMe(userResponse: userResponse)
-        print("Your current score and hand: \(game.player)")
-        print("")
-    } while game.hasMoreCards
+        
+    //} while game.hasMoreCards
     
 }while gameOver == true
 

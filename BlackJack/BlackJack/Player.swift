@@ -12,7 +12,7 @@ struct Player {
     var score = 0
     var playersCards = [Card]()
     
-    mutating func playerScore(playersHand: [Any]) -> Int {
+    mutating func playerScore() -> Int {
         for card in playersCards {
             self.score += card.value
     }

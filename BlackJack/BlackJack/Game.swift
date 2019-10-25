@@ -11,9 +11,8 @@ import Foundation
 struct Game {
     //MARK: properties
     var deck = [Card]()
-    var player = Player(score: 0, playersCards: [])
-    var hitPlayer = true
-    var score = 0
+    var player = Player(score: 0, playersCards: [Card]())
+    var hitPlayer = false
     
     //computed properties
     var hasMoreCards : Bool {
@@ -28,46 +27,35 @@ struct Game {
     
     //1.
     mutating func newGame() {
-        score = 0
-        _ = hasMoreCards == true
-        deck = [Card]()
+        player = Player(score: 0, playersCards: [Card]())
+        deck = Card.newDeck(aceValue: 1)
+        _ = hasMoreCards
         player = Player(score: 0, playersCards: [])
     }
     
     //2.
     //if pass, computer score is generated at a random number in a range
-    //    mutating func stopHits(userResponse: String) -> Bool {
-    //        switch userResponse {
-    //        case false:
-    //            if hitPlayer == false {
-    //            let result = computerVPlayer(compScore: randomComputerScore)
-    //            print("computer scored: \(result)")
-    //            }
-    //        default:
-    //            print("not valid")
-    //    }
+    mutating func stopHits(userResponse: String) {
+            if userResponse == "pass" {
+            print("computer score:\(computerVPlayer())")
+            }
+        }
     
     //3.
     //if hit me, card is removed from deck and added to player's hand.
-    mutating func hitMe(userResponse: String) -> Bool {
-        switch userResponse {
-        case "hit" :
-        if hasMoreCards == true{
-        for (index, card) in deck.enumerated() {
-            player.playersCards.append(card)
-            deck.remove(at: index)
+    mutating func hitMe(userResponse: String) -> [Card] { //userResponse: String, hit: Bool
+        if userResponse == "hit" {
+            deck = deck.shuffled()
+            if let hitCard = deck.popLast() {
+            player.playersCards.append(hitCard)
+            }
         }
+        print(player.playersCards)
+        for card in player.playersCards {
+            print(card.stringify())
         }
-        return hitPlayer == true
-            
-        case "pass" :
-        print("computer score: \(computerVPlayer())")
-        return hitPlayer == false
-            
-        default:
-        print("Sorry the deck is empty")
-    }
-        return hitPlayer
+        
+        return player.playersCards
     }
     
     //4.
@@ -76,22 +64,68 @@ struct Game {
         let computerScore = randomComputerScore
         return computerScore
     }
-    
     //5.
     //comparing player's score with computer's score.
     //choices to continue, bust/lose, blackjack/win
-    mutating func gameStatus(userResponse: String) {
-        score = player.playerScore(playersHand: player.playersCards)
-        print("your score: \(score)")
-        print("your hand: \(player.playersCards)")
-        if score > computerVPlayer() {
+    mutating func gameStatus() {
+        let playerHand = player.playersCards
+        let score = player.playerScore()
+        print("your hand: \(playerHand)")
+        print("your score: \(String(score))")
+        
+        if score == 21 {
             print("BlackJack!")
-            print("You Won!! 🥳")
+            print("You Won! 🥳")
+        } else if score < 21 {
+            print(String(score))
+            print(playerHand)
+            print("Wanna keep going? Hit or pass")
+            switch hitPlayer {
+            case true :
+                hitMe(userResponse: "")
+            case false :
+                stopHits(userResponse: "")
+            default :
+                print("?")
+            }
+        } else if score < computerVPlayer() {
+            print("You lost! 😢")
         } else if score == computerVPlayer() {
             print("It's a tie! 😅")
         } else {
-            print("You lost 😢")
+            print("?")
         }
+        
+//        switch stats {
+//        case "hit" :
+//            _ = hitMe(userResponse: userResponse)
+//            print("your score: \(String(score))")
+//            print("your hand: \(playerHand)")
+//            if score > computerVPlayer() {
+//                print("BlackJack!")
+//                print("You Won!! 🥳")
+//            } else if score == computerVPlayer() {
+//                print("It's a tie! 😅")
+//            } else {
+//                print("You lost 😢")
+//            }
+//        case "pass" :
+//            _ = hitMe(userResponse: userResponse)
+//            print("your score: \(String(score))")
+//            print("computer score: \(computerVPlayer())")
+//            if score > computerVPlayer() {
+//                          print("BlackJack!")
+//                          print("You Won!! 🥳")
+//                      } else if score == computerVPlayer() {
+//                          print("It's a tie! 😅")
+//                      } else {
+//                          print("You lost 😢")
+//                      }
+//        default :
+//            print("not valid")
+//        }
+        
+        
     }
     
     
