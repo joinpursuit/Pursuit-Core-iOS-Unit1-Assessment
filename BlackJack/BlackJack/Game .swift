@@ -16,7 +16,6 @@ class Game {
     var player = Player(score: 0, cards: [], playerName: "")
     var hitPlayeris = true
     
-// Computed Properties
 
     var hasMoreCards: Bool {
 
@@ -24,57 +23,37 @@ class Game {
         return !deck.isEmpty
     }
     
-// Computed Properties
 
     var randomComputerScore: Int {
-        var randomCardValue = deck.randomElement()
-        randomCardValue?.value
-        return randomCardValue?.value ?? 18
+         let randomCardValue = deck.randomElement()
+         
+        
+    
+        return randomCardValue?.value ?? 14
     }
-// Initializers:
-    
-//    init(deck:[Card],
-//         player: Player,
-//         hitPlayeris: Bool) {
-//        self.deck = deck
-//        self.player = player
-//        self.hitPlayeris = hitPlayeris
-//    }
-    
-    
-    
-    
+
+
     
 // MARK: Methods
     
 func newGame() {
-
-// resets the game
-    
+    player.cards.removeAll()
     player.score = 0
-    deck.removeAll()
-    
     }
     
     
     
     
-    
-    
-    
-    
-    
-    
-func stopHits(_ userInput: String) -> Int {
+    func stopHits(_ userInput: String)  {
       // called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
-    if userInput == "pass" {
-        print("You chose to pass")
-        player.score == 7
+//    player.score == deck.randomElement()?.value
+        let message = ("You loose, computer: \(randomComputerScore), you: 12")
+        
+        
+    print(message)
     }
     
-    return randomComputerScore
     
-    }
 
     
     
@@ -86,11 +65,15 @@ func stopHits(_ userInput: String) -> Int {
     
     
     
- func hitMe() {
+    func hitMe(_ userInput: String) {
         
         // called as the user requests more cards from the deck
-        
     
+        
+//    
+        player.score = deck.randomElement()?.value ?? 21
+        
+    print("score: \(player.score)")
     
     }
     
@@ -111,6 +94,11 @@ func stopHits(_ userInput: String) -> Int {
 
 func computerVsPlayer() -> Int {
         // draws a random number for the computer and determines the winner of the game.
+    if randomComputerScore > player.score {
+        print("you loose")
+    } else if randomComputerScore < player.score{
+        print("You win")
+    }
     
     
     return randomComputerScore

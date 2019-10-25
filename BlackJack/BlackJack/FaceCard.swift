@@ -18,9 +18,3 @@ enum FaceCard: String, CaseIterable {
 
 
 
-//enum Suit: CaseIterable {
-//    case diamond = "♦️"
-//    case heart = "❤️"
-//    case spade = "♠️"
-//    case club = "♣️"
-//}

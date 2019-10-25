@@ -16,13 +16,26 @@ let game = Game()
 
 var gameOver = false
 
+var playAgain = true
 
 let gameMessage = """
-Welcome to blackjack.
 Do you want to hit or pass?
 
 """
+
+repeat {
+
 print(gameMessage)
 
-let userResponse = readLine()
+let userResponse = readLine() ?? ""
+
+if userResponse == "hit" {
+    game.hitMe(userResponse)
+} else if  userResponse == "pass"  {
+    game.stopHits(userResponse)
+} else {
+    print("Invalid answer")
+}
+
+} while playAgain
 
