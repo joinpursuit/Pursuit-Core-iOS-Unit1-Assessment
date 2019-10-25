@@ -75,6 +75,11 @@ repeat {
     print(gamePrompt)
     var userChoice = readLine()?.lowercased() ?? ""
     game.hitMe(userChoice: userChoice)
+    game.stopHits(userChoice: userChoice)
+
+    game.computerVsPlayer()
+    
+    
     
 //    repeat{
 ////        print(gamePrompt)

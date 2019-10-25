@@ -24,8 +24,8 @@ class Game {
     }
     
     var randomComputerScore: Int {
-     
-     return deck.endIndex
+     let computerNum = Int.random(in: 18...21)
+     return computerNum
     }
     
     func newGame() {
@@ -51,19 +51,22 @@ class Game {
     func stopHits(userChoice: String) {
         //called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
         if userChoice == "pass"{
+          deck = Card.newDeck(aceValue: 1)
           deck = deck.shuffled()
-          let card = deck.randomElement()
           if player.score > randomComputerScore{
                print("\(player.score) - The player wins this round!")
           } else if randomComputerScore > player.score {
-               print("\(randomComputerScore) - The computer wins this round!")
+               print("Player: \(player.score)\n Computer: \(randomComputerScore) - The computer wins this round!")
           }
         }
     }
     
     func computerVsPlayer() {
         //draws a random number for the computer and determines the winner of the game.
-        
+     var randomComputerNumber = Card.newDeck(aceValue: 1)
+     randomComputerNumber = randomComputerNumber.shuffled()
+     print(randomComputerNumber)
+     
     }
     
     
