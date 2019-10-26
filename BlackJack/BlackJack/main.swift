@@ -38,7 +38,7 @@ repeat{
             game.gameStatus()
             game.hasMoreCards = game.moreHits()
             
-        } while game.player.score <= 20 && playAgain == true
+        } while game.player.score <= 20 || playAgain == true
         
         game.gameStatus()
         print("Do you want to play again? yes or no ")
