@@ -32,27 +32,26 @@ class Game {
     
     func computerVsPlayer() { // for now I think it completelly substiture stopHits method
         if randomComputerScore > player.score {
-            print("Computer got \(randomComputerScore) and you got \(player.score). You lost! 😭 🦴 💣")
+            print("\nComputer got \(randomComputerScore) and you got \(player.score). You lost! 😭 🦴 💣")
         } else {
-            print("You got \(player.score) and computer got \(randomComputerScore). You win! 👏 🍾 🃏")
+            print("\nYou got \(player.score) and computer got \(randomComputerScore). You win! 👏 🍾 🃏")
         }
     }
+    
     
     func hitMe() {
         var shuffledDeck = deck.shuffled() // shuffle the deck
         let randomCardForPlayer = shuffledDeck.removeLast() //removes element from deck array and returns it
         player.score += randomCardForPlayer.value// adds score
         print("\(randomCardForPlayer.stringify()) score: \(player.score)")// prints card and score // decide how to print following random cards
-        
     }
+    
     
     func gameStatus() {
         if player.score == 21 {
             print("BlackJack!!! YOU WIN!!!!!!!!! 🏆 ♦️ ♠️ ♥️ ♣️ 🏆")
-            
         } else if player.score > 21 {
             print("Bust! This game is over. Computer win. 🤧 😫 🧨")
-            
         } else {
             print("Continue playing...")
         }
