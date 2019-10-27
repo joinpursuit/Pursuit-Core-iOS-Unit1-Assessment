@@ -25,12 +25,10 @@ class Game {
     
 
     var randomComputerScore: Int {
-         let randomCardValue = deck.randomElement()
-         
-        
+        let computer = [2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21]
+        return computer.randomElement() ?? 0
     
-        return randomCardValue?.value ?? 14
-    }
+           }
 
 
     
@@ -44,11 +42,12 @@ func newGame() {
     
     
     
-    func stopHits(_ userInput: String)  {
+    func stopHits(_ userInput: String) {
       // called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
 //    player.score == deck.randomElement()?.value
-        let message = ("You loose, computer: \(randomComputerScore), you: 12")
-        
+        let message = ("Computer: \(randomComputerScore), you: \(player.score)")
+        gameStatus()
+    
         
     print(message)
     }
@@ -70,11 +69,11 @@ func newGame() {
         // called as the user requests more cards from the deck
     
         
-//    
-        player.score = deck.randomElement()?.value ?? 21
         
-    print("score: \(player.score)")
-    
+        
+        print("score:\(player.score), computer: \(randomComputerScore)")
+        gameStatus()
+        
     }
     
     
@@ -94,17 +93,12 @@ func newGame() {
 
 func computerVsPlayer() -> Int {
         // draws a random number for the computer and determines the winner of the game.
-    if randomComputerScore > player.score {
-        print("you loose")
-    } else if randomComputerScore < player.score{
-        print("You win")
-    }
-    
-    
+  
+
     return randomComputerScore
     }
-    
-    
+
+//
     
     
     
@@ -120,16 +114,15 @@ func gameStatus() {
         print("Bust")
     } else if player.score == 21 {
         print("BlackJack")
-    } else if player.score < 21 {
-        print("Continue")
     }
-    
-    
-    
-    
+
+
+
+
     }
-    
+
 }
+
 
 
 
