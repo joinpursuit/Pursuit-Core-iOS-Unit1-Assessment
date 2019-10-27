@@ -23,18 +23,84 @@ game.newGame() // prints Do you want to hit or pass? (hit, pass)
 var gameContinues = true
 var userResponse = readLine()?.lowercased() ?? ""
 
+//mainGameLoopYes:
+//    repeat {
+//        if userResponse == "yes" {
+//            print("Do you want hit or pass? (hit, pass)")
+//            userResponse = readLine()?.lowercased() ?? ""
+//            innerGameLoopYes:
+//            if userResponse == "hit" {
+//                game.hitMe()
+//                game.gameStatus() // if contunue prints "Do you want to hit or pass? (hit, pass)"
+//                userResponse = readLine()?.lowercased() ?? ""
+//                continue mainGameLoopYes
+//            } else if userResponse == "pass" {
+//                game.computerVsPlayer() //Game result and question: "Do you want to paly again? (yes/no)")
+//                gameContinues = false
+//            } else {
+//                print("Do you want to play? (yes, no)")
+//                userResponse = readLine()?.lowercased() ?? ""
+//                if userResponse == "yes" {
+//                    continue mainGameLoopYes
+//                } else if userResponse == "no" {
+//                    break mainGameLoopYes
+//                } else {
+//                    print("Entry error. You may start game from the begining.")
+//                    print("Do you want to play again? (yes, no)")
+//                    break mainGameLoopYes
+//                }
+//            }
+//        } else if userResponse == "no" {
+//            print("Bye!")
+//            gameContinues = false
+//        } else {
+//            print("Confusing answer. Do you want to play? (yes, no)")
+//            userResponse = readLine()?.lowercased() ?? ""
+//        }
+//        //game.computerVsPlayer() //Game result and question: "Do you want to paly again? (yes/no)")
+//} while gameContinues
+
+
+ print("Do you want hit or pass? (hit, pass)")
 // here I should write main logic of the game
-repeat {
-if userResponse == "hit" {
-    game.hitMe()
-    game.gameStatus() // if contunue prints "Do you want to hit or pass? (hit, pass)"
-    userResponse = readLine()?.lowercased() ?? ""
-} else if userResponse == "pass" {
-    game.gameStatus()
-    gameContinues = false
-} else {
-    print("Not valid answer. Try again.")
-}
-    //game.computerVsPlayer() //Game result and question: "Do you want to paly again? (yes/no)")
+mainGameLoop:
+    repeat {
+        if userResponse == "hit" {
+            game.hitMe()
+            game.gameStatus() // if contunue prints "Do you want to hit or pass? (hit, pass)"
+            userResponse = readLine()?.lowercased() ?? ""
+        } else if userResponse == "pass" {
+            game.computerVsPlayer() //Game result and question: "Do you want to paly again? (yes/no)")
+            gameContinues = false
+        } else if userResponse == "no" {
+            print("Bye!")
+            break mainGameLoop
+        } else {
+            print("Entry error. If you want to play again enter \"hit\" or \"pass\". Otherwise enter \"no\".")
+            userResponse = readLine()?.lowercased() ?? ""
+            if userResponse == "hit" {
+                continue mainGameLoop
+            } else if userResponse == "pass" {
+                continue //mainGameLoop
+            } else if userResponse == "no" {
+                print("Bye!")
+                break mainGameLoop
+            } else {
+                print("Entry error. You may start game from the begining.")
+                break mainGameLoop
+            }
+        }
+        //game.computerVsPlayer() //Game result and question: "Do you want to paly again? (yes/no)")
 } while gameContinues
+
+//userResponse = readLine()?.lowercased() ?? ""
+
+//userResponse = readLine()?.lowercased() ?? ""
+//if userResponse == "yes" {
+//    game.newGame()
+//} else if userResponse == "no" {
+//    print("Bye!")
+//} else {
+//    print("Not valid answer. Try again.")
+//}
 

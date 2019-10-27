@@ -10,14 +10,15 @@ import Foundation
 
 class Game {
     var deck = [Card]()
-    var player = Player(score: 0, cards: [], playerName: "Yuliia") // something is incorrectr here
+    var player = Player(score: 0, cards: [], playerName: "Yuliia")
     var hitPlayer = Bool()
     
-    var hasMoreCards: Bool {
+    var hasMoreCards: Bool { // I don't use it (no need to use.
         get {
             return !deck.isEmpty // check if I want if true or false
         }
     }
+    
     var randomComputerScore: Int {
         get {
             return Int(18 + arc4random_uniform(21 - 18 + 1))
@@ -27,16 +28,13 @@ class Game {
     func newGame() {
         player.score = 0
         deck = Card.newDeck(aceValue: 11)
-        print("Do you want to hit or pass? (hit, pass)")
     }
     
-    func computerVsPlayer() { // for now I think it completelly substiture stopFits method
+    func computerVsPlayer() { // for now I think it completelly substiture stopHits method
         if randomComputerScore > player.score {
-            print("Computer got \(randomComputerScore). You lost!")
-            print("Do you want to paly again? (yes/no)")
+            print("Computer got \(randomComputerScore) and you got \(player.score). You lost! 😭 🦴 💣")
         } else {
-            print("Ypu got \(player.score). You win!")
-            print("Do you want to paly again? (yes/no)")
+            print("You got \(player.score) and computer got \(randomComputerScore). You win! 👏 🍾 🃏")
         }
     }
     
@@ -50,12 +48,13 @@ class Game {
     
     func gameStatus() {
         if player.score == 21 {
-            print("BlackJack!!!")
+            print("BlackJack!!! YOU WIN!!!!!!!!! 🏆 ♦️ ♠️ ♥️ ♣️ 🏆")
+            
         } else if player.score > 21 {
-            print("Bust!")
+            print("Bust! This game is over. Computer win. 🤧 😫 🧨")
+            
         } else {
-            print("Continue playing")
-            print("Do you want to hit or pass? (hit, pass)")
+            print("Continue playing...")
         }
     }
 }
