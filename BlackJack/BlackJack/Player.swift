@@ -10,6 +10,11 @@ import Foundation
 
 struct Player {
     var score: Int
+<<<<<<< HEAD
     var cards: [Card]
     var playerName: String
+=======
+    var cards = [Card]()
+    var playerName: String 
+>>>>>>> 3715835cff567dd041e88d16f78414b7d0f92e08
 }
