@@ -42,6 +42,14 @@ class Game {
         }
     }
     
+    func hitMe(userHit: String) {
+        var userHit = userHit
+        userHit = readLine()?.lowercased() ?? ""
+        
+        if userHit == "hit" {
+            print()
+        }
+    }
     
     
     }
