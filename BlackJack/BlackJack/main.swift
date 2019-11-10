@@ -17,12 +17,29 @@ let game = Game()
 
 
 
-var gameOver = false
+//var test = Card.newDeck(aceValue: 1).randomElement()?.stringify() ?? ""
+//print(test)
+//
+//var test2 = Card.newDeck(aceValue: 1).randomElement()?.value ?? 0
+//print(test2)
 
+
+
+
+var gameOver = false
 var playAgain = true
 
+print("Enter Your name")
+var enterYourName = readLine() ?? ""
+
+print()
+
+print("Welcome to BlackJack \(enterYourName)!")
+
+print()
+
 let gameMessage = """
-Do you want to hit or pass?
+Do you want to hit or pass? (hit, pass)
 
 """
 
@@ -32,13 +49,12 @@ print(gameMessage)
 
 let userResponse = readLine() ?? ""
 
-if userResponse == "hit" {
-    game.hitMe(userResponse)
-} else if  userResponse == "pass"  {
-    game.stopHits(userResponse)
-} else {
-    print("Invalid answer")
-}
+    if userResponse == "hit" {
+      let response = game.hitMe()
+        print("\(response) score: \(game.player.score)")
+    } else {
+        print("pass")
+    }
 
 } while playAgain
 

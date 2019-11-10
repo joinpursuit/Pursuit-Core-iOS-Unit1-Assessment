@@ -13,7 +13,7 @@ class Game {
 // MARK: Properties
     
     var deck = [Card]()
-    var player = Player(score: 0, cards: [], playerName: "")
+    var player = Player(score: 0, cards: [Card](), playerName: "")
     var hitPlayeris = true
     
 
@@ -25,10 +25,9 @@ class Game {
     
 
     var randomComputerScore: Int {
-        let computer = [2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21]
-        return computer.randomElement() ?? 0
-    
-           }
+       let computer = Card.newDeck(aceValue: 1).randomElement()?.value ?? 0
+       return computer
+    }
 
 
     
@@ -42,14 +41,10 @@ func newGame() {
     
     
     
-    func stopHits(_ userInput: String) {
+    func stopHits() {
       // called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
-//    player.score == deck.randomElement()?.value
-        let message = ("Computer: \(randomComputerScore), you: \(player.score)")
-        gameStatus()
-    
-        
-    print(message)
+       
+
     }
     
     
@@ -64,16 +59,11 @@ func newGame() {
     
     
     
-    func hitMe(_ userInput: String) {
-        
-        // called as the user requests more cards from the deck
+    func hitMe() -> String {
+        let result = Card.newDeck(aceValue: 1).randomElement()?.stringify() ?? ""
+        player.score = Card.newDeck(aceValue: 1).randomElement()?.value ?? 0
+        return result
     
-        
-        
-        
-        print("score:\(player.score), computer: \(randomComputerScore)")
-        gameStatus()
-        
     }
     
     
@@ -91,14 +81,14 @@ func newGame() {
     
     
 
-func computerVsPlayer() -> Int {
+func computerVsPlayer(){
         // draws a random number for the computer and determines the winner of the game.
-  
 
-    return randomComputerScore
+
+   
     }
 
-//
+
     
     
     
