@@ -34,7 +34,7 @@ var enterYourName = readLine() ?? ""
 
 print()
 
-print("Welcome to BlackJack \(enterYourName)!")
+print("Welcome to BlackJack \(enterYourName.capitalized)")
 
 print()
 
@@ -44,17 +44,19 @@ Do you want to hit or pass? (hit, pass)
 """
 
 repeat {
-
-print(gameMessage)
-
-let userResponse = readLine() ?? ""
-
+    
+    print(gameMessage)
+    
+    let userResponse = readLine() ?? ""
+    
     if userResponse == "hit" {
-      let response = game.hitMe()
+        let response = game.hitMe()
         print("\(response) score: \(game.player.score)")
-    } else {
-        print("pass")
+    } else if userResponse == "pass" {
+        let answer = game.stopHits()
+        print("\(answer)your score: \(game.player.score), computer: \(game.randomComputerScore)")
+        
     }
-
+    
 } while playAgain
 
